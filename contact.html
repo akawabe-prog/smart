@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お問い合わせ ｜ SMART SERIES</title>
+<meta name="description" content="Smart Series 製品に関するお問い合わせフォーム。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-root="">
+<div id="site-header"></div>
+
+<section class="section" style="padding-top:clamp(56px,8vw,110px)">
+  <div class="wrap wrap-narrow">
+    <nav class="breadcrumb"><a href="./">SMART SERIES</a> / お問い合わせ</nav>
+    <p class="eyebrow">Contact</p>
+    <h1 class="h-display">お問い合わせ</h1>
+    <p class="lead mt-m">製品の使い方・不具合・取扱店について、お気軽にご連絡ください。<br>通常2〜3営業日以内にご返信いたします。</p>
+  </div>
+</section>
+
+<section class="section--tight" style="padding-bottom:clamp(72px,10vw,160px)">
+  <div class="wrap wrap-narrow">
+    <form id="contact-form" class="cform" action="contact.php" method="post">
+      <label>お名前 <span class="req">必須</span>
+        <input type="text" name="name" required placeholder="山田 太郎">
+      </label>
+      <label>メールアドレス <span class="req">必須</span>
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label>対象製品
+        <select name="product">
+          <option value="">選択してください</option>
+          <option>スマートライドダッシュボード（SRD 5 / Basic / Pro / Slim）</option>
+          <option>スマートカーリンク</option>
+          <option>スマートエアーマルチポンプ</option>
+          <option>スマートポータブル01</option>
+          <option>スマートエアダスター</option>
+          <option>その他・購入前のご相談</option>
+        </select>
+      </label>
+      <label>お問い合わせ内容 <span class="req">必須</span>
+        <textarea name="message" rows="7" required placeholder="症状・ご購入時期・ご利用環境などをできるだけ詳しくお書きください。"></textarea>
+      </label>
+      <p class="muted" style="font-size:12.5px">送信いただいた情報は<a href="policy.html" style="color:var(--gold)">プライバシーポリシー</a>に基づき取り扱います。</p>
+      <button type="submit" class="btn btn--lg" style="justify-content:center">送信する</button>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script type="module" src="assets/js/components.js"></script>
+<script type="module" src="assets/js/motion.js"></script>
+<style>
+.cform { display: grid; gap: 22px; }
+.cform label { display: grid; gap: 8px; font-weight: 700; font-size: 14px; }
+.req { display: inline-block; font-size: 10px; font-weight: 800; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: 1px; }
+.cform input, .cform select, .cform textarea {
+  width: 100%; background: var(--bg-3); border: 1px solid var(--line); border-radius: 8px;
+  color: #fff; font-family: inherit; font-size: 15px; padding: 13px 14px; outline: none;
+  transition: border-color .2s;
+}
+.cform input:focus, .cform select:focus, .cform textarea:focus { border-color: var(--gold); }
+.cform ::placeholder { color: #5a5c62; }
+.cform select { appearance: none; }
+</style>
+</body>
+</html>

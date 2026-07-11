@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>商品一覧 ｜ SMART SERIES</title>
+<meta name="description" content="Smart Series 全製品一覧。バイク・自転車・車・デイリーの用途から選べます。スマートモニター、電動エアポンプ、高圧洗浄機、エアダスター、カーリンク。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-root="">
+<div id="site-header"></div>
+
+<!-- ===== HEAD ===== -->
+<section class="section--tight" style="padding-top:clamp(48px,7vw,90px)">
+  <div class="wrap">
+    <nav class="breadcrumb"><a href="./">SMART SERIES</a> / 商品一覧</nav>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">All Products</p>
+        <h1 class="h-display">商品一覧</h1>
+      </div>
+      <span class="muted" style="font-size:12.5px" id="result-count"></span>
+    </div>
+
+    <!-- filter chips -->
+    <div class="chips mt-m" id="filter-chips" role="tablist" aria-label="用途で絞り込み">
+      <button class="chip is-active" data-filter="all">すべて</button>
+      <button class="chip" data-filter="bike">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h2l3 11.5M6 6h4l5.5 11.5M5.5 17.5 10 6"/></svg>
+        バイク</button>
+      <button class="chip" data-filter="bicycle">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="m14 6 4.5 11.5M9 6h5M5.5 17.5 9 6l5 8h4.5"/></svg>
+        自転車</button>
+      <button class="chip" data-filter="car">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11 6.5 6h11L19 11M5 11h14a2 2 0 0 1 2 2v4h-2M5 11a2 2 0 0 0-2 2v4h2m0 0a2 2 0 1 0 4 0M5 17h4m6 0a2 2 0 1 0 4 0m-4 0h4"/></svg>
+        車</button>
+      <button class="chip" data-filter="daily">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5M5 9v11h14V9"/></svg>
+        デイリー</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATALOG ===== -->
+<section style="padding-bottom:clamp(72px,9vw,140px)">
+  <div class="wrap">
+    <div class="catalog-grid" id="catalog"></div>
+    <div id="no-hit" style="display:none;text-align:center;padding:72px 0">
+      <p class="lead mx-auto center">この用途の商品は見つかりませんでした。</p>
+      <div class="stack-cta mt-m center"><button class="btn btn--gold-ghost" id="reset-filter">すべて表示する</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section panel center">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow no-rule" style="justify-content:center">Series</p>
+    <h2 class="h-section">シリーズの世界観から、選ぶ。</h2>
+    <div class="stack-cta mt-m center">
+      <a href="./#series" class="btn btn--lg">5つのシリーズを見る</a>
+      <a href="./#popular" class="btn btn--ghost btn--lg">人気ランキング</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script type="module" src="assets/js/components.js"></script>
+<script type="module">
+  import { SERIES, allProducts } from './assets/js/products.js';
+
+  const TAG_LABEL = { bike: 'バイク', bicycle: '自転車', car: '車', daily: 'デイリー' };
+  const seriesShort = Object.fromEntries(SERIES.map(s => [s.slug, s.short]));
+  const items = allProducts();
+
+  // ---- render ----
+  document.getElementById('catalog').innerHTML = items.map(p => `
+    <a class="pop-card cat-card" href="${p.href}" data-tags="${(p.tags || []).join(' ')}">
+      <div class="pop-media"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+      <span class="badge badge--plain" style="align-self:flex-start">${seriesShort[p.series] || ''}</span>
+      <div class="pop-name">${p.name}</div>
+      <div class="pop-note">${p.note || ''}</div>
+      <div class="cat-tags">${(p.tags || []).map(t => `<i>${TAG_LABEL[t]}</i>`).join('')}</div>
+      <div class="pop-price"><span data-api-price-item-id="${p.id}" data-fallback-price="${p.price}">¥${p.price.toLocaleString()}</span><small>税込</small></div>
+    </a>`).join('');
+
+  // ---- filter ----
+  const cards = [...document.querySelectorAll('.cat-card')];
+  const chips = [...document.querySelectorAll('.chip')];
+  const countEl = document.getElementById('result-count');
+  const noHit = document.getElementById('no-hit');
+
+  function apply(filter) {
+    chips.forEach(c => c.classList.toggle('is-active', c.dataset.filter === filter));
+    let shown = 0;
+    cards.forEach(card => {
+      const hit = filter === 'all' || card.dataset.tags.split(' ').includes(filter);
+      card.classList.toggle('is-hidden', !hit);
+      if (hit) shown += 1;
+    });
+    countEl.textContent = `${shown}件の商品`;
+    noHit.style.display = shown === 0 ? '' : 'none';
+    if (filter !== 'all') history.replaceState(null, '', `#${filter}`);
+    else history.replaceState(null, '', location.pathname);
+  }
+
+  chips.forEach(c => c.addEventListener('click', () => apply(c.dataset.filter)));
+  document.getElementById('reset-filter').addEventListener('click', () => apply('all'));
+
+  // URLハッシュから初期フィルタ (#bike / #bicycle / #car / #daily)
+  const initial = location.hash.replace('#', '');
+  apply(['bike', 'bicycle', 'car', 'daily'].includes(initial) ? initial : 'all');
+
+  import('./assets/js/api-price-display.js');
+  import('./assets/js/motion.js');
+</script>
+<style>
+/* filter chips */
+.chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 10px 20px; font-size: 13.5px; font-weight: 700;
+  transition: all .2s var(--ease);
+}
+.chip:hover { color: #fff; border-color: rgba(255,255,255,.4); transform: translateY(-1px); }
+.chip.is-active { background: var(--gold); color: #0a0a0b; border-color: var(--gold); }
+
+/* catalog grid */
+.catalog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+.cat-card { transition: transform .25s var(--ease), border-color .25s, opacity .3s var(--ease); }
+.cat-card.is-hidden { display: none; }
+.cat-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+.cat-tags i { font-style: normal; font-size: 10px; font-weight: 700; color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px; padding: 2px 8px; }
+@media (max-width: 1000px) { .catalog-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px)  { .catalog-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</body>
+</html>

@@ -1,0 +1,514 @@
+{
+  "site": "smart",
+  "maker": "126",
+  "series": {
+    "srd": {
+      "id": "1261010",
+      "name": "スマートライドダッシュボード",
+      "tagline": "バイク用スマートモニター",
+      "slug": "srd",
+      "products": [
+        {
+          "id": "28002239",
+          "name": "スマートライドダッシュボード SRD 5 (5inch)",
+          "makerNo": "SRD5",
+          "price": 26800,
+          "priceEx": 24364,
+          "status": {
+            "cd": "SF",
+            "txt": "△残りわずか",
+            "updatedAt": "2026-07-01T09:21:26"
+          },
+          "thumb": "assets/products/28002239/thumb.jpg",
+          "main": "assets/products/28002239/main.jpg"
+        },
+        {
+          "id": "28113034",
+          "name": "スマートライドダッシュボード SRD 5 Basic (5inch)",
+          "makerNo": "SRD5 Basic",
+          "price": 16800,
+          "priceEx": 15273,
+          "status": {
+            "cd": "SL",
+            "txt": "★在庫限り",
+            "updatedAt": "2026-02-06T18:31:27"
+          },
+          "thumb": "assets/products/28113034/thumb.jpg",
+          "main": "assets/products/28113034/main.jpg"
+        },
+        {
+          "id": "28186922",
+          "name": "スマートライドダッシュボード SRD 5 Slim (5inch)",
+          "makerNo": "SRD5 Slim",
+          "price": 15620,
+          "priceEx": 14200,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-03-25T18:16:25"
+          },
+          "thumb": "assets/products/28186922/thumb.jpg",
+          "main": "assets/products/28186922/main.jpg"
+        },
+        {
+          "id": "28186915",
+          "name": "スマートライドダッシュボード SRD 5 Pro (5inch)",
+          "makerNo": "SRD5 Pro",
+          "price": 34800,
+          "priceEx": 31636,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-06-19T16:06:26"
+          },
+          "thumb": "assets/products/28186915/thumb.jpg",
+          "main": "assets/products/28186915/main.jpg"
+        }
+      ],
+      "accessories": [
+        {
+          "id": "29159406",
+          "name": "SRD 5 Slim モニター 交換用 SDカード挿入口蓋用ネジ3個",
+          "makerNo": "",
+          "price": 363,
+          "priceEx": 330,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:41:25"
+          },
+          "thumb": "assets/products/29159406/thumb.jpg",
+          "main": "assets/products/29159406/main.jpg"
+        },
+        {
+          "id": "29159390",
+          "name": "SRD 5 Slim モニター 交換用 SDカード挿入口蓋+ネジ3個",
+          "makerNo": "",
+          "price": 583,
+          "priceEx": 530,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:41:25"
+          },
+          "thumb": "assets/products/29159390/thumb.jpg",
+          "main": "assets/products/29159390/main.jpg"
+        },
+        {
+          "id": "29159383",
+          "name": "SRD 5 Slim モニター 交換用 遮光フード用ネジ4個セット",
+          "makerNo": "",
+          "price": 473,
+          "priceEx": 430,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:41:25"
+          },
+          "thumb": "assets/products/29159383/thumb.jpg",
+          "main": "assets/products/29159383/main.jpg"
+        },
+        {
+          "id": "29159376",
+          "name": "SRD 5 Slim モニター 交換用 遮光フード+所要ネジ1セット",
+          "makerNo": "",
+          "price": 682,
+          "priceEx": 620,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:51:25"
+          },
+          "thumb": "assets/products/29159376/thumb.jpg",
+          "main": "assets/products/29159376/main.jpg"
+        },
+        {
+          "id": "29159369",
+          "name": "SRD 5 Slim モニター 交換用 1m USB用電源コード",
+          "makerNo": "",
+          "price": 1551,
+          "priceEx": 1410,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:41:25"
+          },
+          "thumb": "assets/products/29159369/thumb.jpg",
+          "main": "assets/products/29159369/main.jpg"
+        },
+        {
+          "id": "29159352",
+          "name": "SRD 5 Slim モニター 交換用 電源コード",
+          "makerNo": "",
+          "price": 1914,
+          "priceEx": 1740,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:41:25"
+          },
+          "thumb": "assets/products/29159352/thumb.jpg",
+          "main": "assets/products/29159352/main.jpg"
+        },
+        {
+          "id": "29159345",
+          "name": "SRD 5 Slim モニター 交換用 ブラケット",
+          "makerNo": "",
+          "price": 3003,
+          "priceEx": 2730,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-05T17:41:25"
+          },
+          "thumb": "assets/products/29159345/thumb.jpg",
+          "main": "assets/products/29159345/main.jpg"
+        },
+        {
+          "id": "29008988",
+          "name": "SRD 5/Basic用 ブラケット U型ブラケット パイプハン取付用",
+          "makerNo": "",
+          "price": 2992,
+          "priceEx": 2720,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-08-22T13:56:27"
+          },
+          "thumb": "assets/products/29008988/thumb.jpg",
+          "main": "assets/products/29008988/main.jpg"
+        },
+        {
+          "id": "29008971",
+          "name": "SRD 5/Basic用 ブラケット L型ミラー共締め用",
+          "makerNo": "",
+          "price": 2992,
+          "priceEx": 2720,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-04-22T11:36:33"
+          },
+          "thumb": "assets/products/29008971/thumb.jpg",
+          "main": "assets/products/29008971/main.jpg"
+        },
+        {
+          "id": "29008964",
+          "name": "SRD 5/Basic用 ブラケット M8 ボールヘッドタイプ",
+          "makerNo": "",
+          "price": 2992,
+          "priceEx": 2720,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-04-22T11:36:33"
+          },
+          "thumb": "assets/products/29008964/thumb.jpg",
+          "main": "assets/products/29008964/main.jpg"
+        },
+        {
+          "id": "29008957",
+          "name": "SRD 5/Basic用 ブラケット U型ブラケット パイプハン取付用 ロックタイプ",
+          "makerNo": "",
+          "price": 2992,
+          "priceEx": 2720,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-06-15T11:21:31"
+          },
+          "thumb": "assets/products/29008957/thumb.jpg",
+          "main": "assets/products/29008957/main.jpg"
+        },
+        {
+          "id": "29008940",
+          "name": "SRD 5/Basic用 ブラケット ミラー共締め用",
+          "makerNo": "",
+          "price": 2992,
+          "priceEx": 2720,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-04-22T11:36:33"
+          },
+          "thumb": "assets/products/29008940/thumb.jpg",
+          "main": "assets/products/29008940/main.jpg"
+        },
+        {
+          "id": "29008933",
+          "name": "SRD 5/Basic用 ブラケット M10 ボールヘッドタイプ",
+          "makerNo": "",
+          "price": 2992,
+          "priceEx": 2720,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-04-22T11:36:33"
+          },
+          "thumb": "assets/products/29008933/thumb.jpg",
+          "main": "assets/products/29008933/main.jpg"
+        },
+        {
+          "id": "28090618",
+          "name": "SRD 5/Basic用 遮光フード・取付ネジセット",
+          "makerNo": "",
+          "price": 847,
+          "priceEx": 770,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-03-16T00:03:29"
+          },
+          "thumb": "assets/products/28090618/thumb.jpg",
+          "main": "assets/products/28090618/main.jpg"
+        },
+        {
+          "id": "28090588",
+          "name": "SRD 5/Basic用 電源ケーブル(USB用)",
+          "makerNo": "",
+          "price": 1551,
+          "priceEx": 1410,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-03-16T00:03:29"
+          },
+          "thumb": "assets/products/28090588/thumb.jpg",
+          "main": "assets/products/28090588/main.jpg"
+        },
+        {
+          "id": "28090571",
+          "name": "SRD 5/Basic用 ブラケットB・C・スペーサーセット",
+          "makerNo": "",
+          "price": 1551,
+          "priceEx": 1410,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-07-05T11:51:25"
+          },
+          "thumb": "assets/products/28090571/thumb.jpg",
+          "main": "assets/products/28090571/main.jpg"
+        },
+        {
+          "id": "28090564",
+          "name": "SRD 5用 タイヤ空気圧センサー 前後セット",
+          "makerNo": "",
+          "price": 3366,
+          "priceEx": 3060,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-01-10T10:21:26"
+          },
+          "thumb": "assets/products/28090564/thumb.jpg",
+          "main": "assets/products/28090564/main.jpg"
+        },
+        {
+          "id": "28090557",
+          "name": "SRD 5/Basic用 ブラケットA・取付ネジセット",
+          "makerNo": "",
+          "price": 1551,
+          "priceEx": 1410,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-10-04T10:21:26"
+          },
+          "thumb": "assets/products/28090557/thumb.jpg",
+          "main": "assets/products/28090557/main.jpg"
+        },
+        {
+          "id": "28090540",
+          "name": "SRD 5用 カメラ延長ケーブル",
+          "makerNo": "",
+          "price": 1793,
+          "priceEx": 1630,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-07-05T11:51:25"
+          },
+          "thumb": "assets/products/28090540/thumb.jpg",
+          "main": "assets/products/28090540/main.jpg"
+        },
+        {
+          "id": "28090533",
+          "name": "SRD 5用 カメラセット",
+          "makerNo": "",
+          "price": 4818,
+          "priceEx": 4380,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-10-06T11:16:38"
+          },
+          "thumb": "assets/products/28090533/thumb.jpg",
+          "main": "assets/products/28090533/main.jpg"
+        },
+        {
+          "id": "28090601",
+          "name": "SRD 5/Basic用 SDカード挿入口蓋用ネジ 2本セット",
+          "makerNo": "",
+          "price": 242,
+          "priceEx": 220,
+          "status": {
+            "cd": "SO",
+            "txt": "入荷待",
+            "updatedAt": "2026-07-07T12:36:36"
+          },
+          "thumb": "assets/products/28090601/thumb.jpg",
+          "main": "assets/products/28090601/main.jpg"
+        },
+        {
+          "id": "28090595",
+          "name": "SRD 5/Basic用 電源ケーブル(12V接続用)",
+          "makerNo": "",
+          "price": 1914,
+          "priceEx": 1740,
+          "status": {
+            "cd": "SO",
+            "txt": "入荷待",
+            "updatedAt": "2026-07-09T12:56:28"
+          },
+          "thumb": "assets/products/28090595/thumb.jpg",
+          "main": "assets/products/28090595/main.jpg"
+        },
+        {
+          "id": "29132430",
+          "name": "スマートライドダッシュボード SRD 5 Basic (5inch)",
+          "makerNo": "SRD5 Basic",
+          "price": null,
+          "priceEx": null,
+          "status": {
+            "cd": "DC1",
+            "txt": "取扱終了",
+            "updatedAt": "2025-10-27T14:16:25"
+          },
+          "thumb": "assets/products/29132430/thumb.jpg",
+          "main": "assets/products/29132430/main.jpg"
+        }
+      ]
+    },
+    "carlink": {
+      "id": "1261015",
+      "name": "スマートカーリンク",
+      "tagline": "CarPlay/Android Auto アダプター",
+      "slug": "carlink",
+      "products": [
+        {
+          "id": "29290741",
+          "name": "スマートカーリンク",
+          "makerNo": "CA450",
+          "price": 11600,
+          "priceEx": 10545,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-04-08T17:11:26"
+          },
+          "thumb": "assets/products/29290741/thumb.jpg",
+          "main": "assets/products/29290741/main.jpg"
+        }
+      ],
+      "accessories": []
+    },
+    "multipump": {
+      "id": "1261020",
+      "name": "スマートエアーマルチポンプ",
+      "tagline": "電動エアーポンプ",
+      "slug": "multipump",
+      "products": [
+        {
+          "id": "28089018",
+          "name": "スマートエアーマルチポンプ SAP2000",
+          "makerNo": "SAP2000",
+          "price": 3586,
+          "priceEx": 3260,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-07-25T17:06:26"
+          },
+          "thumb": "assets/products/28089018/thumb.jpg",
+          "main": "assets/products/28089018/main.jpg"
+        }
+      ],
+      "accessories": []
+    },
+    "portable": {
+      "id": "1261030",
+      "name": "スマートポータブル",
+      "tagline": "ポータブル高圧洗浄機",
+      "slug": "portable",
+      "products": [
+        {
+          "id": "29044375",
+          "name": "スマートポータブル01 高圧洗浄機",
+          "makerNo": "",
+          "price": 9878,
+          "priceEx": 8980,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-11-14T12:51:25"
+          },
+          "thumb": "assets/products/29044375/thumb.jpg",
+          "main": "assets/products/29044375/main.jpg"
+        },
+        {
+          "id": "29315956",
+          "name": "スマートポータブル01 高圧洗浄機専用バッテリー",
+          "makerNo": "",
+          "price": 5500,
+          "priceEx": 5000,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-26T17:21:33"
+          },
+          "thumb": "assets/products/29315956/thumb.jpg",
+          "main": "assets/products/29315956/main.jpg"
+        },
+        {
+          "id": "29465934",
+          "name": "【セット品】スマートポータブル01 高圧洗浄機+専用バッテリー",
+          "makerNo": "",
+          "price": 14619,
+          "priceEx": 13290,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-06-09T12:03:58"
+          },
+          "thumb": "assets/products/29465934/thumb.jpg",
+          "main": "assets/products/29465934/main.jpg"
+        }
+      ],
+      "accessories": []
+    },
+    "airduster": {
+      "id": "1261040",
+      "name": "スマートエアダスター",
+      "tagline": "コードレスエアダスター",
+      "slug": "airduster",
+      "products": [
+        {
+          "id": "29290758",
+          "name": "スマートエアダスター",
+          "makerNo": "",
+          "price": 6028,
+          "priceEx": 5480,
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-14T18:01:38"
+          },
+          "thumb": "assets/products/29290758/thumb.jpg",
+          "main": "assets/products/29290758/main.jpg"
+        }
+      ],
+      "accessories": []
+    }
+  }
+}

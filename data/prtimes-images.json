@@ -1,0 +1,542 @@
+{
+  "srd": [
+    {
+      "release": "43",
+      "label": "SRD 5",
+      "images": [
+        {
+          "file": "assets/prtimes/srd/43_01.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-0702bc275554267ee96120d95f4d5bad-1200x780.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_02.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-204b42cf9209be54b30c5c5126a5238c-1200x876.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_03.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-9b0ee4a2c1fdad12e1a3acb729ca5a66-1200x831.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_04.jpg",
+          "width": 1024,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-0a7fdfc3c59a401640eb8f7914e027a2-1024x747.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/43_05.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-6ba0c2729f7463bde55761a6485646d7-1200x794.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_06.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-abf62e4357b125e3bd6c0221e28f3d54-1200x910.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_07.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-f2906dcac07936263307a58db3f472e9-1200x842.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_08.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-ba9960c7a821975c23574329f1716933-1200x839.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_09.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-619fe205afda4cc06ed61eea55fc5cfa-1200x906.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_10.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-10e639fdbb9c7324e4f2bbf7bc5ce9dc-1200x869.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_11.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-af96b7fcb162f36e5af8f7f43d34a42e-1200x847.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_12.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-b70cefdd77108167d4968c5ba5f6f84f-1200x837.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_13.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-55fe7e6d8a1e02d64e76b6ab48a3404e-1200x877.png"
+        },
+        {
+          "file": "assets/prtimes/srd/43_14.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/43/70755-43-c49c08c4a42971d267c06b3ffb11ede1-1200x893.png"
+        }
+      ]
+    },
+    {
+      "release": "54",
+      "label": "SRD 5 Basic",
+      "images": [
+        {
+          "file": "assets/prtimes/srd/54_01.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-c2f9bc910bd64b275400d4a72239f3bc-1200x831.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_02.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-222861d6014750f5701b7343a5f7f049-1200x826.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_03.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-d2ea6672fed7d51d94e97879c8d2b823-1200x816.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_04.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-6c084771f67c7c5529c6b9f13ad0f89f-1200x829.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_05.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-e17e89e9025059debcce24f7d30e6d93-1200x780.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_06.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-9648973e7ec86556f7bc0ca7f1600ad5-1200x860.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_07.jpg",
+          "width": 900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-882267562960ce0098b601be43e90087-900x1200.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/54_08.jpg",
+          "width": 820,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-33512db53532a80c765af0b3119a691a-820x312.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/54_09.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-2a6945af6b1ec7afb3d08ace9aa583e6-1200x898.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_10.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-008c3cd1df73eb251f9dc30dcf1dcaf6-1200x907.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_11.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-dec00540a1e36907dafa64969c5dfe43-1200x781.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_12.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-2db2565d4e9f4fc1b800e828a18d7568-1200x897.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_13.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-ea837e26d1325c74101f04abb2cd41fc-1200x829.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_14.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-0a057c88e93aa1d6d36ed289a65b2cd1-1200x829.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_15.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-17dc2c4caa59356174a1c7a5139c449b-1200x854.png"
+        },
+        {
+          "file": "assets/prtimes/srd/54_16.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/54/70755-54-e084c70bbc38a4e378c10c5bfdb34435-1200x829.png"
+        }
+      ]
+    },
+    {
+      "release": "59",
+      "label": "SRD 5 Pro",
+      "images": [
+        {
+          "file": "assets/prtimes/srd/59_01.jpg",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-52e4fbe34ee20fc07ef96aa2e4df4e1e-1600x1600.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_02.jpg",
+          "width": 1303,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-8f9f9b3b6d8bbbdc5677b24875ec8cbd-1303x1303.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_03.jpg",
+          "width": 1936,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-4a4a61bfb3818ebf48d66b84442e2e11-1936x1337.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_04.jpg",
+          "width": 1511,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-964975b6a94296dfe309b4f92eba5de7-1511x2015.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_05.jpg",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-123ba5b2c26fc933e4de105129900fd8-1200x900.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_06.jpg",
+          "width": 900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-7118a4260445d2848192c693adec4c10-900x1200.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_07.jpg",
+          "width": 900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-6813ee7450fad246580ea3812587f6b0-900x1200.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_08.jpg",
+          "width": 900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-5276a22ffbfe591bf4a77d66e1387d79-900x1200.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_09.jpg",
+          "width": 900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-602007a16de18838dcd1f17401c27ae3-900x1200.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/59_10.jpg",
+          "width": 2339,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/59/70755-59-2c8598b1f233957accd7cf12e9d10d27-2339x1292.jpg"
+        }
+      ]
+    },
+    {
+      "release": "68",
+      "label": "SRD 5 Slim",
+      "images": [
+        {
+          "file": "assets/prtimes/srd/68_01.jpg",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-015aba4d4ff2c1aea3eaa2d233ccbf62-1600x1600.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/68_02.jpg",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-7e19f99c7809f4d04f070f03f2c84417-1600x1600.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/68_03.jpg",
+          "width": 1373,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-81182c3807ae0f81042d384302f8d6f4-1373x1084.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/68_04.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-b96d606e49261dbbeb0eb3c530a1e98b-1200x849.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_05.png",
+          "width": 1024,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-82cf05f58500a6e7220d8d9b97fc6788-1024x600.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_06.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-a2f90c67d36423600271ad830a0aab13-1500x1367.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/68_07.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-a2c931411563ec2b539112e26a694080-1500x1369.jpg"
+        },
+        {
+          "file": "assets/prtimes/srd/68_08.png",
+          "width": 1024,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-967f8a8a2e7de4681d5938db8f172e61-1024x600.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_09.png",
+          "width": 1024,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-14e7fb905944d9ec298aeaf85e8148e6-1024x600.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_10.png",
+          "width": 1024,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-158e7934c4adf9802767af4f29500eac-1024x600.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_11.png",
+          "width": 1024,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-c78ef1ac4775a099fca6bedaf23f126d-1024x600.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_12.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-3696650e843b9883b4642b3423b57e88-1200x820.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_13.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-d71e05367a5e4f4628dbc42e7fdc2539-1200x911.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_14.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-18fb0defd20daeaae71351b1eeb0ae0d-1200x823.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_15.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-74649045229030db6f99573870118321-1200x859.png"
+        },
+        {
+          "file": "assets/prtimes/srd/68_16.png",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/68/70755-68-5182b683247bd135115571f21a11d3da-1600x1600.png"
+        }
+      ]
+    }
+  ],
+  "carlink": [
+    {
+      "release": "84",
+      "label": "スマートカーリンク",
+      "images": [
+        {
+          "file": "assets/prtimes/carlink/84_01.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-f7341fc1e0bafb8df4747c18ec666d1b-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_02.jpg",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-0f628802d18346edeaff3e3b15bd563e-1600x1600.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_03.png",
+          "width": 1254,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-e7d30528b7cb0059d1d0507f22b4d67b-1254x1254.png"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_04.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-58a11d65d0a9332652bdfff59edbb4c0-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_05.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-989db772b1172d20bc689bc4bbbfa7ab-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_06.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-2ba2a8cdfdbb844e86dc2eb4f3691b55-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_07.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-5b34a742b05a9329f4f93c6a7d6a3ad7-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_08.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-c2419a353815ceb9b0a848ba93979f5b-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_09.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-700fa85e2c247f31a52be8b5a9c91731-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_10.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-5fcdc80f5bf34b7741a780afae8ac534-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_11.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-95a2aa7a323042e4a5dcbffd6275b13e-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_12.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-f18a24b552c4f80dd4494d338f4a3093-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_13.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-a88ed3885aab790b33c290922fa2dff0-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_14.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-4b4c4d5a397d50cea1f168bff40a1ab6-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_15.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-c26fbea45022d3ec7cc4966b30b1eec1-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_16.jpg",
+          "width": 1500,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-8edcb5a067d3fbcf5fb5938f29ee4463-1500x1500.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_17.jpg",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-bceb0323907b5f0664cd5d2c54ce633e-1200x900.jpg"
+        },
+        {
+          "file": "assets/prtimes/carlink/84_18.jpg",
+          "width": 2649,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/84/70755-84-c6949637fdd985fb11aad4c3cccccdfb-2649x2174.jpg"
+        }
+      ]
+    }
+  ],
+  "portable": [
+    {
+      "release": "70",
+      "label": "スマートポータブル01 高圧洗浄機",
+      "images": [
+        {
+          "file": "assets/prtimes/portable/70_01.jpg",
+          "width": 1728,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-51d4ee8e55eee715732acf1c5088a6d5-1728x1282.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_02.png",
+          "width": 940,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-fd600a384adfa9f865d296ec3af424b6-940x788.png"
+        },
+        {
+          "file": "assets/prtimes/portable/70_03.png",
+          "width": 940,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-597aad877c26dc7a88c2c98e91a54fe9-940x788.png"
+        },
+        {
+          "file": "assets/prtimes/portable/70_04.png",
+          "width": 1440,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-7942366c14c6bb76480c9e21315d5c69-1440x1440.png"
+        },
+        {
+          "file": "assets/prtimes/portable/70_05.jpg",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-8594905ea92a115cbc6cc1ae2d239b69-1600x1600.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_06.png",
+          "width": 1440,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-95f9ed426cfc30d65848aff1682523d0-1440x1440.png"
+        },
+        {
+          "file": "assets/prtimes/portable/70_07.png",
+          "width": 1440,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-7ab37f86b0a753c28304fb7c6bbbdf6a-1440x1440.png"
+        },
+        {
+          "file": "assets/prtimes/portable/70_08.png",
+          "width": 1440,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-af09bdb288e702a7eb878883334eee18-1440x1440.png"
+        },
+        {
+          "file": "assets/prtimes/portable/70_09.jpg",
+          "width": 1600,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-9a58c2ff4b3dfaa0b18c587d392b0d65-1600x1600.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_10.jpg",
+          "width": 3900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-46b29ea50aa36c4e26cfd91c079cefe1-3900x2600.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_11.jpg",
+          "width": 1280,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-5ef88a1acfada9db1c1c8037e350ca62-1280x1707.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_12.jpg",
+          "width": 1184,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-d4aea0f5edd4f8d856f84f8a11624cd0-1184x864.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_13.jpg",
+          "width": 2048,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-def3c68d078ed3ed4207a56064480869-2048x1365.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_14.jpg",
+          "width": 2649,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-14ec7e268c29a5fd2ce1b2e8cc621b1d-2649x2174.jpg"
+        },
+        {
+          "file": "assets/prtimes/portable/70_15.png",
+          "width": 1278,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/70/70755-70-0b689785e07aba763e1727cb4eea49da-1278x910.png"
+        }
+      ]
+    }
+  ],
+  "multipump": [
+    {
+      "release": "53",
+      "label": "スマートエアーマルチポンプ",
+      "images": [
+        {
+          "file": "assets/prtimes/multipump/53_01.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-e041d73fd1da1cb8ed39ee3336281a1a-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_02.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-1eee31c6976bba085c97531ba6b0175f-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_03.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-0c19ac3820089c6ab053a12682a00677-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_04.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-44cc27984590f64d84c5e01e80835e87-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_05.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-83b6e8aa286a9f989204d2aaa5f83959-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_06.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-dfe07b33f0c0a37374ce49ed80998599-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_07.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-973f9d2690644d2a0acffe9b0a3e699b-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_08.png",
+          "width": 1200,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-a8be225f0fd3ee2d4a468a5b3fa2f143-1200x900.png"
+        },
+        {
+          "file": "assets/prtimes/multipump/53_09.jpg",
+          "width": 900,
+          "src": "https://prcdn.freetls.fastly.net/release_image/70755/53/70755-53-53e9f5029280cfd65df1c9363c49aa16-900x1200.jpg"
+        }
+      ]
+    }
+  ]
+}
