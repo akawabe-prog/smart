@@ -107,7 +107,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .badge--plain { color: var(--ink-soft); border-color: var(--line); }
 
 /* =======================  TOPBAR (メーカー帯)  ======================= */
-.topbar { background: #050506; border-bottom: 1px solid var(--line-2); }
+.topbar { background: #1c1e26; border-bottom: 1px solid rgba(255,255,255,.08); }
 .topbar__inner { display: flex; align-items: center; justify-content: flex-end; height: 34px; padding-inline: clamp(22px, 2.5vw, 72px); }
 .topbar__cj { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); opacity: .82; transition: opacity .2s var(--ease); }
 .topbar__cj:hover { opacity: 1; }
