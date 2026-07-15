@@ -78,6 +78,7 @@
         </label>
       </div>
 
+      <div class="buy__msrp" id="active-msrp" style="display:none"><s class="msrp"><span class="msrp__label">メーカー希望小売価格</span>¥14,801</s><span class="off-badge">OFF</span></div>
       <div class="buy__price">
         <span class="price" id="active-price">¥14,619</span>
         <span class="tax">税込</span>
@@ -185,17 +186,30 @@
   import { productById } from '../../assets/js/products.js';
   const ROOT = document.body.dataset.root || '';
 
-  // ---- variant selector: 選択SKUをカートボタンと価格表示へ反映 ----
+  // ---- variant selector: 選択SKUをカートボタン・価格・希望小売価格へ反映 ----
   const btn = document.querySelector('[data-add-to-cart]');
   const activePrice = document.getElementById('active-price');
+  const msrpLine = document.getElementById('active-msrp');
+  const updateMsrp = (id, shownText) => {
+    const m = productById(id)?.msrp;
+    const cur = Number(String(shownText).replace(/[^0-9]/g, ''));
+    const off = m && cur ? Math.round((1 - cur / m) * 100) : 0;
+    if (off >= 5) {
+      msrpLine.querySelector('.msrp').innerHTML = `<span class="msrp__label">メーカー希望小売価格</span>¥${m.toLocaleString()}`;
+      msrpLine.querySelector('.off-badge').textContent = `${off}% OFF`;
+      msrpLine.style.display = '';
+    } else msrpLine.style.display = 'none';
+  };
   document.querySelectorAll('#variants input[name=sku]').forEach((r) => {
     r.addEventListener('change', () => {
       btn.dataset.productId = r.value;
       const shown = r.closest('.variant').querySelector('.v-price').textContent;
       activePrice.textContent = shown;
+      updateMsrp(r.value, shown);
       document.querySelectorAll('#variants .variant').forEach((v) => v.classList.toggle('is-active', v.contains(r)));
     });
   });
+  updateMsrp('29465934', activePrice.textContent); // 初期表示(セット)
 
   // ---- cross-sell ----
   const picks = [

@@ -88,8 +88,48 @@ function injectTrustBar() {
   buy.appendChild(row);
 }
 
+/* ---- モバイル下部固定バー（価格 + カート追加）。購入パネルを過ぎたら表示 ---- */
+function injectStickyBar() {
+  const buy = document.querySelector('.buy');
+  const mainBtn = buy?.querySelector('[data-add-to-cart]');
+  if (!buy || !mainBtn || document.querySelector('.buybar')) return;
+
+  const priceSrc = buy.querySelector('.buy__price .price');
+  const title = (buy.querySelector('h1')?.textContent || '').trim();
+
+  const bar = document.createElement('div');
+  bar.className = 'buybar';
+  bar.innerHTML = `
+    <div class="buybar__info">
+      <span class="buybar__name">${title}</span>
+      <span class="buybar__price"></span>
+    </div>
+    <button class="btn btn--cart buybar__btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      カートに追加
+    </button>`;
+  document.body.appendChild(bar);
+
+  // 価格をライブ同期（API更新・バリアント切替の両方を拾う）
+  const priceOut = bar.querySelector('.buybar__price');
+  const sync = () => { priceOut.textContent = (priceSrc?.textContent || '').trim(); };
+  sync();
+  if (priceSrc) new MutationObserver(sync).observe(priceSrc, { childList: true, characterData: true, subtree: true });
+
+  // 本体のカートボタンへ委譲（バリアント/数量ロジックを共有）
+  bar.querySelector('.buybar__btn').addEventListener('click', () => mainBtn.click());
+
+  // 購入パネルが画面上方向へ流れたら表示
+  const io = new IntersectionObserver(([e]) => {
+    const passed = !e.isIntersecting && e.boundingClientRect.top < 0;
+    bar.classList.toggle('show', passed);
+  }, { threshold: 0 });
+  io.observe(buy);
+}
+
 initApiClient();
 wireAddToCart();
 wireGallery();
 injectTrustBar();
+injectStickyBar();
 refreshCartCount();

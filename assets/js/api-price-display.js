@@ -133,6 +133,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       const price = priceMap.get(id) || Number(el.dataset.fallbackPrice || 0);
       if (Number.isFinite(price) && price > 0) el.textContent = formatYen(price);
     });
+
+    // メーカー希望小売価格に対する割引率バッジを、確定した表示価格で再計算
+    document.querySelectorAll('[data-off-id]').forEach((badge) => {
+      const id = String(badge.dataset.offId || '').trim();
+      const msrp = Number(badge.dataset.msrp || 0);
+      const cur = priceMap.get(id) || Number(
+        String(document.querySelector(`[data-api-price-item-id="${id}"]`)?.textContent || '').replace(/[^0-9]/g, ''),
+      );
+      const off = msrp > 0 && cur > 0 ? Math.round((1 - cur / msrp) * 100) : 0;
+      const wrap = badge.closest('.price-line, .buy__msrp') || badge;
+      if (off >= 5) { badge.textContent = `${off}% OFF`; wrap.style.display = ''; }
+      else wrap.style.display = 'none';
+    });
   } catch (error) {
     console.warn('[api-price-display] price API fetch failed. fallback price is used.', error);
   }

@@ -295,7 +295,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .news-list .n-new { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 3px 8px; }
 .news-list .n-title { font-weight: 600; font-size: 15px; flex: 1; min-width: 240px; }
 .news-list a:hover .n-title { color: var(--gold-hi); }
-.news-list .n-ext { margin-left: auto; color: var(--muted); font-size: 13px; }
+.news-list .n-ext { margin-left: auto; color: var(--muted); font-size: 13px; transition: transform .25s var(--ease), color .25s; }
+.news-list a:hover .n-ext { transform: translate(3px, -3px); color: var(--gold); }
 
 /* NEW ribbon on product media */
 .new-flag { position: absolute; top: 10px; right: 10px; z-index: 2; font-family: var(--font-en); font-size: 10px; font-weight: 800; letter-spacing: .1em; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 3px 9px; }
@@ -468,6 +469,44 @@ ul { margin: 0; padding: 0; list-style: none; }
 .feature .ico { width: 46px; height: 46px; border-radius: 10px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; margin-bottom: 20px; }
 .feature h3 { font-size: 19px; margin-bottom: 10px; }
 .feature p { font-size: 14px; color: var(--ink-soft); }
+
+/* =======================  MOBILE STICKY BUY BAR (PDP)  ======================= */
+.buybar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 150;
+  display: none; align-items: center; gap: 12px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(10,10,11,.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  transform: translateY(102%); transition: transform .3s var(--ease);
+}
+.buybar.show { transform: none; }
+.buybar__info { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.buybar__name { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.buybar__price { font-family: var(--font-en); font-weight: 800; font-size: 18px; color: #fff; line-height: 1.2; }
+.buybar__btn.btn--cart { width: auto; flex: none; padding: 13px 24px; font-size: 14px; }
+@media (max-width: 760px) { .buybar { display: flex; } }
+
+/* =======================  MOBILE SLIDER (Best Sellers)  ======================= */
+@media (max-width: 760px) {
+  .pop-grid {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+    gap: 12px; padding-bottom: 10px;
+    margin-inline: -22px; padding-inline: 22px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .pop-grid::-webkit-scrollbar { display: none; }
+  .pop-grid .pop-card { flex: 0 0 62%; scroll-snap-align: start; }
+}
+
+/* =======================  MSRP / % OFF  ======================= */
+.price-line { display: inline-flex; align-items: center; gap: 10px; }
+.msrp { font-family: var(--font-en); font-size: 13px; color: var(--muted); text-decoration: line-through; font-weight: 600; white-space: nowrap; }
+.msrp .msrp__label { font-family: var(--font-sans); font-size: 11px; text-decoration: none; display: inline-block; margin-right: 4px; }
+.off-badge { font-family: var(--font-en); font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+.price-line--s .msrp { font-size: 11.5px; }
+.price-line--s .off-badge { font-size: 9.5px; padding: 2px 7px; }
+.buy__msrp { display: flex; align-items: center; gap: 10px; margin: 26px 0 0; }
+.buy__msrp + .buy__price { margin-top: 8px; }
 
 /* 英語タイトル下の日本語サブ見出し */
 .head-sub { margin-top: 12px; font-size: 14px; color: var(--ink-soft); letter-spacing: .03em; line-height: 1.7; }

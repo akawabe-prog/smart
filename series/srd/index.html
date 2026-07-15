@@ -115,7 +115,8 @@
   import { seriesBySlug } from '../../assets/js/products.js';
   const ROOT = document.body.dataset.root || '';
   const srd = seriesBySlug('srd');
-  const order = ['srd-5-basic','srd-5','srd-5-slim','srd-5-pro'];
+  // 低価格順（Slim → Basic → SRD 5 → Pro）でユーザーが選びやすく
+  const order = ['srd-5-slim','srd-5-basic','srd-5','srd-5-pro'];
   const models = order.map(s => srd.products.find(p => p.slug === s));
   const oneLiner = {
     'srd-5-basic':'CarPlay対応のエントリー',
@@ -123,12 +124,17 @@
     'srd-5-slim':'薄型×タッチ操作のコスパ機',
     'srd-5-pro':'1000nit・IP67 の最上位',
   };
+  const offLine = (m) => {
+    const off = m.msrp ? Math.round((1 - m.price / m.msrp) * 100) : 0;
+    return off >= 5 ? `<div class="price-line price-line--s" style="margin-bottom:6px"><s class="msrp">¥${m.msrp.toLocaleString()}</s><span class="off-badge" data-off-id="${m.id}" data-msrp="${m.msrp}">${off}% OFF</span></div>` : '';
+  };
   document.getElementById('lineup-grid').innerHTML = models.map(m => `
     <a class="lineup__item" href="../../product/${m.slug}/">
       <span class="badge${m.badge==='FLAGSHIP'?' badge--solid':''}">${m.badge}</span>
       <div class="m-img"><img src="${ROOT}${m.img}" alt="${m.name}" loading="lazy"></div>
       <div class="m-name">${m.name}</div>
       <div class="m-desc">${oneLiner[m.slug]}</div>
+      ${offLine(m)}
       <div class="m-foot">
         <span class="price" style="font-size:19px"><span data-api-price-item-id="${m.id}" data-fallback-price="${m.price}">¥${m.price.toLocaleString()}</span></span>
         <span class="arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
@@ -138,17 +144,18 @@
   // comparison
   const cols = models;
   const hiIdx = cols.findIndex(m => m.slug === 'srd-5-pro');
+  // 列順 = 低価格順: Slim / Basic / SRD 5 / Pro
   const rows = [
-    ['画面',['5" IPS','5" IPS','5" IPS タッチ','5" IPS 雨天対応タッチ']],
-    ['輝度',['—','—','800nit','1000nit']],
+    ['画面',['5" IPS タッチ','5" IPS','5" IPS','5" IPS 雨天対応タッチ']],
+    ['輝度',['800nit','—','—','1000nit']],
     ['CarPlay / Android Auto',['yes','yes','yes','yes']],
-    ['前後ドラレコ (FullHD)',['no','yes','no','yes']],
-    ['タイヤ空気圧監視 TPMS',['no','yes','no','yes']],
-    ['GPS内蔵',['no','yes','no','yes']],
-    ['Bluetooth',['—','—','5.1','5.0']],
-    ['Wi-Fi',['—','—','2.4GHz','5GHz']],
-    ['防水防塵',['IP66','IP66','IP65','IP67']],
-    ['筐体・特記',['必要十分','全部入り','薄型軽量','航空アルミ+信越シリコーン']],
+    ['前後ドラレコ (FullHD)',['no','no','yes','yes']],
+    ['タイヤ空気圧監視 TPMS',['no','no','yes','yes']],
+    ['GPS内蔵',['no','no','yes','yes']],
+    ['Bluetooth',['5.1','—','—','5.0']],
+    ['Wi-Fi',['2.4GHz','—','—','5GHz']],
+    ['防水防塵',['IP65','IP66','IP66','IP67']],
+    ['筐体・特記',['薄型軽量','必要十分','全部入り','航空アルミ+信越シリコーン']],
   ];
   const cell = v => v==='yes'?'<span class="yes">●</span>':v==='no'?'<span class="no">—</span>':v;
   const thead = `<thead><tr><th></th>${cols.map((m,i)=>`<th class="${i===hiIdx?'col-hi':''}"><span class="model-name">${m.name}</span></th>`).join('')}</tr>

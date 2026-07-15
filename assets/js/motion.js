@@ -84,8 +84,63 @@ function setupCountUp() {
   els.forEach((el) => io.observe(el));
 }
 
+/* ---- 4. 動画オートプレイの堅牢化（iOS Safari等での停止に保険） ---- */
+function ensureAutoplay() {
+  const vids = [...document.querySelectorAll('video[autoplay]')];
+  if (vids.length === 0) return;
+  const kick = () => vids.forEach((v) => { v.muted = true; if (v.paused) v.play().catch(() => {}); });
+  kick();
+  window.addEventListener('touchstart', kick, { once: true, passive: true });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
+}
+
+/* ---- 5. GSAP ScrollTrigger（vendor同梱・失敗時は false を返し rAF 視差へ） ---- */
+const loadScript = (src) => new Promise((res, rej) => {
+  const s = document.createElement('script');
+  s.src = src; s.onload = res; s.onerror = () => rej(new Error(`load failed: ${src}`));
+  document.head.appendChild(s);
+});
+
+async function setupGsap() {
+  try {
+    const ROOT = document.body.getAttribute('data-root') || '';
+    await loadScript(`${ROOT}assets/vendor/gsap.min.js`);
+    await loadScript(`${ROOT}assets/vendor/ScrollTrigger.min.js`);
+    const { gsap, ScrollTrigger } = window;
+    if (!gsap || !ScrollTrigger) throw new Error('gsap globals missing');
+    gsap.registerPlugin(ScrollTrigger);
+
+    // フルブリード背景 / ヒーロー背景を scrub 視差（1.12倍で余白を確保して上下に流す）
+    document.querySelectorAll('.hero__bg > img, .hero__bg > video, .feature-full__bg > img, .feature-full__bg > video, .showcase__bg > img, .showcase__bg > video')
+      .forEach((m) => {
+        const host = m.closest('.hero, .feature-full, .showcase');
+        if (!host) return;
+        gsap.set(m, { scale: 1.12 });
+        gsap.fromTo(m, { yPercent: -5 }, {
+          yPercent: 5, ease: 'none',
+          scrollTrigger: { trigger: host, start: 'top bottom', end: 'bottom top', scrub: true },
+        });
+      });
+
+    // シネマ映像ウォール: 入場時にタイルをスタガーで立ち上げ
+    const wall = document.querySelector('.cine-wall');
+    if (wall) {
+      gsap.from('.cine-tile', {
+        opacity: 0, y: 44, duration: .8, ease: 'power3.out', stagger: .09,
+        scrollTrigger: { trigger: wall, start: 'top 82%' },
+      });
+    }
+    window.__gsapActive = true;
+    return true;
+  } catch (e) {
+    console.warn('[motion] GSAP CDN unavailable — rAF parallax fallback', e);
+    return false;
+  }
+}
+
 if (!REDUCED) {
   setupReveal();
-  setupParallax();
   setupCountUp();
+  setupGsap().then((ok) => { if (!ok) setupParallax(); });
 }
+ensureAutoplay();
