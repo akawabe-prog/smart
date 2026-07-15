@@ -469,6 +469,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 .feature h3 { font-size: 19px; margin-bottom: 10px; }
 .feature p { font-size: 14px; color: var(--ink-soft); }
 
+/* 英語タイトル下の日本語サブ見出し */
+.head-sub { margin-top: 12px; font-size: 14px; color: var(--ink-soft); letter-spacing: .03em; line-height: 1.7; }
+.h-en { font-family: var(--font-en); letter-spacing: -.02em; }
+
 /* ---- utility ---- */
 .center { text-align: center; }
 .mx-auto { margin-inline: auto; }
