@@ -80,14 +80,27 @@
     <h2 class="h-display">その造形を、映像で。</h2>
     <p class="lead mt-s">スマートシリーズのプロダクトフィルム。細部まで作り込まれた造形と質感を、動きの中で。</p>
   </div>
-  <div class="cinema__stage bleed mt-l">
-    <video id="cinema-video" src="assets/videos/srd-hero.mp4" autoplay muted loop playsinline poster="assets/videos/srd-5-hero-poster.jpg"></video>
-    <div class="cinema__grad"></div>
-    <div class="cinema__cap">
-      <span class="cinema__tag" id="cinema-tag">SRD 5 Pro</span>
-      <h3 class="cinema__title" id="cinema-title">スマートライドダッシュボード</h3>
-    </div>
-    <div class="cinema__tabs" id="cinema-tabs"></div>
+  <div class="cine-wall bleed mt-l" id="cine-wall">
+    <a class="cine-tile cine-main" href="series/srd/">
+      <video src="assets/videos/srd-hero.mp4" muted loop playsinline preload="metadata" poster="assets/videos/srd-5-hero-poster.jpg"></video>
+      <div class="cine-tile__grad"></div>
+      <div class="cine-tile__cap"><span class="cine-tile__tag">SRD 5 Pro</span><span class="cine-tile__name">スマートライドダッシュボード</span></div>
+    </a>
+    <a class="cine-tile cine-a" href="series/airduster/">
+      <video src="assets/videos/airduster-hero.mp4" muted loop playsinline preload="metadata" poster="assets/videos/airduster-hero-poster.jpg"></video>
+      <div class="cine-tile__grad"></div>
+      <div class="cine-tile__cap"><span class="cine-tile__tag">Air Duster</span><span class="cine-tile__name">スマートエアダスター</span></div>
+    </a>
+    <a class="cine-tile cine-b" href="series/carlink/">
+      <video src="assets/videos/carlink-hero.mp4" muted loop playsinline preload="metadata" poster="assets/videos/carlink-hero-poster.jpg"></video>
+      <div class="cine-tile__grad"></div>
+      <div class="cine-tile__cap"><span class="cine-tile__tag">Car Link</span><span class="cine-tile__name">スマートカーリンク</span></div>
+    </a>
+    <a class="cine-tile cine-c" href="series/multipump/">
+      <video src="assets/videos/multipump-hero.mp4" muted loop playsinline preload="metadata" poster="assets/videos/multipump-hero-poster.jpg"></video>
+      <div class="cine-tile__grad"></div>
+      <div class="cine-tile__cap"><span class="cine-tile__tag">Multi Pump</span><span class="cine-tile__name">スマートエアーマルチポンプ</span></div>
+    </a>
   </div>
 </section>
 
@@ -134,82 +147,59 @@
 </div>
 
 <script>
-  // ---- Cinematic showcase (Smart Series 映像切替) ----
+  // ---- Cinematic video wall: 画面内のときだけ再生（負荷軽減） ----
   (function () {
-    const FILMS = [
-      { name: 'スマートライドダッシュボード', tag: 'SRD 5 Pro',  src: 'assets/videos/srd-hero.mp4' },
-      { name: 'スマートエアダスター',        tag: 'Air Duster', src: 'assets/videos/airduster-hero.mp4' },
-      { name: 'スマートカーリンク',          tag: 'Car Link',   src: 'assets/videos/carlink-hero.mp4' },
-      { name: 'スマートエアーマルチポンプ',  tag: 'Multi Pump', src: 'assets/videos/multipump-hero.mp4' },
-    ];
-    const video = document.getElementById('cinema-video');
-    const title = document.getElementById('cinema-title');
-    const tag = document.getElementById('cinema-tag');
-    const tabs = document.getElementById('cinema-tabs');
-    if (!video || !tabs) return;
-    tabs.innerHTML = FILMS.map((f, i) =>
-      `<button class="cinema__tab${i === 0 ? ' is-active' : ''}" data-i="${i}">${f.name}</button>`).join('');
-    let cur = 0;
-    const play = (i) => {
-      if (i === cur) return;
-      cur = i;
-      const f = FILMS[i];
-      video.style.opacity = '0';
-      const swap = () => {
-        video.src = f.src; video.load();
-        video.play().catch(() => {});
-        title.textContent = f.name; tag.textContent = f.tag;
-        video.oncanplay = () => { video.style.opacity = '1'; video.oncanplay = null; };
-        setTimeout(() => { video.style.opacity = '1'; }, 600); // フォールバック
-      };
-      setTimeout(swap, 220);
-      tabs.querySelectorAll('.cinema__tab').forEach((b, bi) => b.classList.toggle('is-active', bi === i));
-    };
-    tabs.querySelectorAll('.cinema__tab').forEach((b) => b.addEventListener('click', () => play(Number(b.dataset.i))));
+    const wall = document.getElementById('cine-wall');
+    if (!wall) return;
+    const vids = [...wall.querySelectorAll('video')];
+    if (!('IntersectionObserver' in window)) { vids.forEach(v => v.play().catch(() => {})); return; }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (e.isIntersecting) e.target.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+        else e.target.querySelectorAll('video').forEach(v => v.pause());
+      });
+    }, { threshold: 0.15 });
+    io.observe(wall);
   })();
 </script>
 <script type="module" src="assets/js/components.js"></script>
 <script type="module">
   import { SERIES } from './assets/js/products.js';
 
-  // ---- showcase 定義（背景メディア + 段落ち制御済みのサブ文）----
-  const bg = {
-    srd:       { type:'img',   src:'assets/prtimes/srd/43_01.png' },
-    carlink:   { type:'video', src:'assets/videos/carlink-hero.mp4' },
-    multipump: { type:'img',   src:'assets/motomegane/multipump/DSC2650.jpg' },
-    portable:  { type:'img',   src:'assets/prtimes/portable/70_02.png' },
-    airduster: { type:'video', src:'assets/videos/airduster-hero.mp4' },
+  // ---- series index: 2カラム フルブリード（英語主体・洗練） ----
+  const EN = {
+    srd: 'Smart Ride Dashboard', carlink: 'Smart Car Link', multipump: 'Smart Air Multi Pump',
+    portable: 'Smart Portable', airduster: 'Smart Air Duster',
   };
-  const subs = {
-    srd:       'ミラーレス時代のライディングを支える、<br>国内仕様のスマートディスプレイ。',
-    carlink:   '差すだけでスマホ連携。<br>純正ナビが、最新のコネクテッド環境に変わる。',
-    multipump: '入力してねじ込むだけ、目標空気圧まで自動充填。<br>コンパクトで、パワフル。',
-    portable:  '電源も水道も選ばない。<br>どこでも高圧洗浄を持ち出せる、01シリーズ。',
-    airduster: '微風から最大35m/sまで、無段階。<br>271gで、洗車も日常もこれ一台。',
+  const HERO = {
+    srd:       'assets/prtimes/srd/43_01.png',
+    carlink:   'assets/videos/carlink-hero-poster.jpg',
+    multipump: 'assets/motomegane/multipump/DSC2650.jpg',
+    portable:  'assets/prtimes/portable/70_13.jpg',
+    airduster: 'assets/motomegane/airduster/IMG_0358.jpg',
   };
-
-  const root = document.getElementById('series');
-  root.innerHTML = SERIES.map((s, i) => {
-    const side = i % 2 === 1 ? ' showcase--right' : '';
-    const media = bg[s.slug];
-    const bgEl = media.type === 'video'
-      ? `<video src="${media.src}" autoplay muted loop playsinline></video>`
-      : `<img src="${media.src}" alt="" loading="lazy">`;
-    const count = s.products.length > 1 ? `${s.products.length} MODELS` : 'VIEW PRODUCT';
+  const arw = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+  const tile = (s, i) => {
+    const count = s.products.length > 1 ? `${s.products.length} Models` : 'View Product';
     return `
-    <section class="showcase bleed${side}">
-      <div class="showcase__bg">${bgEl}</div>
-      <div class="showcase__inner"><div class="wrap">
-        <p class="showcase__index">0${i + 1} / ${s.short}</p>
-        <h2 class="showcase__title">${s.name}</h2>
-        <p class="showcase__sub">${subs[s.slug]}</p>
-        <div class="showcase__cta">
-          <a href="series/${s.slug}/" class="btn btn--lg">詳しく見る</a>
-          <span class="badge badge--plain" style="align-self:center">${count}</span>
-        </div>
-      </div></div>
-    </section>`;
-  }).join('');
+    <a class="stile${i === 0 ? ' stile--feature' : ''}" href="series/${s.slug}/">
+      <div class="stile__media"><img src="${HERO[s.slug]}" alt="${EN[s.slug]}" loading="lazy"></div>
+      <div class="stile__grad"></div>
+      <div class="stile__body">
+        <span class="stile__no">${String(i + 1).padStart(2, '0')} — ${s.short}</span>
+        <h3 class="stile__en">${EN[s.slug]}</h3>
+        <span class="stile__ja">${s.name}</span>
+        <span class="stile__cta">${count} ${arw}</span>
+      </div>
+    </a>`;
+  };
+  document.getElementById('series').innerHTML = `
+    <div class="wrap series-head">
+      <p class="eyebrow">The Series</p>
+      <h2 class="h-display">Five Smart Products.</h2>
+      <p class="lead mt-s">カスタムジャパンが独自開発した、5つのスマートプロダクト・シリーズ。</p>
+    </div>
+    <div class="series-grid2 bleed">${SERIES.map((s, i) => tile(s, i)).join('')}</div>`;
 
   // ---- marquee ----
   const names = SERIES.map(s => s.short);

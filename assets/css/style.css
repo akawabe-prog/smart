@@ -300,22 +300,69 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* NEW ribbon on product media */
 .new-flag { position: absolute; top: 10px; right: 10px; z-index: 2; font-family: var(--font-en); font-size: 10px; font-weight: 800; letter-spacing: .1em; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 3px 9px; }
 
-/* =======================  CINEMATIC SHOWCASE  ======================= */
-.cinema__stage { position: relative; height: clamp(440px, 66vh, 800px); background: #000; overflow: hidden; }
-.cinema__stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .5s var(--ease); }
-.cinema__grad { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(0deg, rgba(10,10,11,.9) 0%, rgba(10,10,11,.15) 42%, transparent 70%),
-              linear-gradient(90deg, rgba(10,10,11,.5) 0%, transparent 55%); }
-.cinema__cap { position: absolute; z-index: 2; left: clamp(22px, 2.5vw, 72px); bottom: clamp(84px, 12vh, 132px); }
-.cinema__tag { font-family: var(--font-en); font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
-.cinema__title { font-size: clamp(28px, 4.2vw, 56px); font-weight: 800; letter-spacing: -.02em; color: #fff; margin-top: 10px; }
-.cinema__tabs { position: absolute; z-index: 2; left: clamp(22px, 2.5vw, 72px); right: clamp(22px, 2.5vw, 72px); bottom: clamp(22px, 3vh, 40px); display: flex; gap: 10px; flex-wrap: wrap; }
-.cinema__tab { padding: 9px 18px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: rgba(10,10,11,.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #d4d6da; font-size: 13px; font-weight: 700; white-space: nowrap; transition: all .2s var(--ease); }
-.cinema__tab:hover { color: #fff; border-color: rgba(255,255,255,.55); }
-.cinema__tab.is-active { background: var(--gold); color: #0a0a0b; border-color: var(--gold); }
-@media (max-width: 620px) {
-  .cinema__tab { padding: 8px 13px; font-size: 12px; }
-  .cinema__cap { bottom: clamp(96px, 20vh, 140px); }
+/* =======================  SERIES INDEX (2カラム フルブリード / 英語主体)  ======================= */
+.series-head { margin-bottom: clamp(30px, 4vw, 56px); }
+.series-head .h-display { font-family: var(--font-en); letter-spacing: -.02em; }
+.series-grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--line-2); }
+.stile { position: relative; display: block; overflow: hidden; background: #000; aspect-ratio: 16 / 11; }
+.stile--feature { grid-column: 1 / 3; aspect-ratio: 24 / 9; }
+.stile__media { position: absolute; inset: 0; }
+.stile__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.stile:hover .stile__media img { transform: scale(1.06); }
+.stile__grad { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,10,11,.92) 0%, rgba(10,10,11,.15) 55%, rgba(10,10,11,.05) 100%); }
+.stile::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; z-index: 3; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
+.stile:hover::before { transform: scaleX(1); }
+.stile__body { position: absolute; z-index: 2; left: clamp(24px, 2.6vw, 52px); right: clamp(24px, 2.6vw, 52px); bottom: clamp(24px, 2.6vw, 44px); }
+.stile__no { font-family: var(--font-en); font-size: 12px; font-weight: 700; letter-spacing: .2em; color: var(--gold); }
+.stile__en { font-family: var(--font-en); font-weight: 800; letter-spacing: -.015em; color: #fff; margin-top: 10px; line-height: 1.02; }
+.stile--feature .stile__en { font-size: clamp(30px, 4.4vw, 62px); }
+.stile:not(.stile--feature) .stile__en { font-size: clamp(21px, 2.5vw, 34px); }
+.stile__ja { display: block; font-size: 13px; color: var(--ink-soft); margin-top: 9px; letter-spacing: .02em; }
+.stile__cta { display: inline-flex; align-items: center; gap: 9px; margin-top: 16px; font-family: var(--font-en); font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #d4d6da; }
+.stile__cta svg { transition: transform .25s var(--ease); }
+.stile:hover .stile__cta { color: var(--gold); }
+.stile:hover .stile__cta svg { transform: translateX(5px); }
+@media (max-width: 760px) {
+  .series-grid2 { grid-template-columns: 1fr; }
+  .stile, .stile--feature { grid-column: auto; aspect-ratio: 16 / 11; }
+  .stile--feature .stile__en { font-size: 30px; }
+}
+
+/* =======================  CINEMATIC VIDEO WALL (メイン1/サブ2/サムネ1)  ======================= */
+.cine-wall {
+  display: grid; gap: 10px; height: clamp(500px, 78vh, 860px);
+  padding-inline: clamp(10px, 1.2vw, 20px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.cine-main { grid-column: 1 / 3; grid-row: 1 / 3; }  /* メイン: 大 (2x2) */
+.cine-a    { grid-column: 3 / 5; grid-row: 1; }       /* サブ1: 横長 (2x1) */
+.cine-b    { grid-column: 3;     grid-row: 2; }       /* サブ2/サムネ (1x1) */
+.cine-c    { grid-column: 4;     grid-row: 2; }       /* サムネ (1x1) */
+
+.cine-tile { position: relative; overflow: hidden; border-radius: 6px; background: #000; display: block; }
+.cine-tile video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.cine-tile:hover video { transform: scale(1.05); }
+.cine-tile__grad { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(0deg, rgba(10,10,11,.82) 0%, transparent 55%); }
+.cine-tile::after { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: 6px; box-shadow: inset 0 0 0 1px transparent; transition: box-shadow .25s; pointer-events: none; }
+.cine-tile:hover::after { box-shadow: inset 0 0 0 2px var(--gold); }
+.cine-tile__cap { position: absolute; z-index: 3; left: 18px; bottom: 16px; right: 18px; }
+.cine-tile__tag { display: block; font-family: var(--font-en); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.cine-tile__name { display: block; font-weight: 800; color: #fff; letter-spacing: -.01em; line-height: 1.25; }
+.cine-main .cine-tile__cap { left: clamp(20px, 2vw, 36px); bottom: clamp(20px, 2.4vw, 40px); }
+.cine-main .cine-tile__tag { font-size: 12px; }
+.cine-main .cine-tile__name { font-size: clamp(22px, 2.6vw, 38px); }
+.cine-a .cine-tile__name { font-size: clamp(17px, 1.8vw, 24px); }
+.cine-b .cine-tile__name, .cine-c .cine-tile__name { font-size: 14px; }
+
+@media (max-width: 760px) {
+  .cine-wall { height: auto; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, minmax(150px, 26vh)); }
+  .cine-main { grid-column: 1 / 3; grid-row: 1; }
+  .cine-a    { grid-column: 1 / 3; grid-row: 2; }
+  .cine-b    { grid-column: 1; grid-row: 3; }
+  .cine-c    { grid-column: 2; grid-row: 3; }
+  .cine-main .cine-tile__name { font-size: 22px; }
 }
 
 /* =======================  VIDEO LIGHTBOX  ======================= */
