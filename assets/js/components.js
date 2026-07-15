@@ -25,18 +25,12 @@ const seriesMenu = SERIES.map((s) => `
   </a>`).join('');
 
 const headerHTML = `
-<div class="topbar">
-  <div class="topbar__inner">
-    <a class="topbar__cj" href="https://www.customjapan.net/" target="_blank" rel="noopener" aria-label="カスタムジャパン公式サイト（メーカー）">
-      <span class="topbar__cap">Manufacturer</span>
-      <img src="${url('assets/images/cj-logo-h-text.svg')}" alt="Custom Japan">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="brand" href="${HOME}">SMART<b>SERIES</b></a>
+    <a class="brand" href="${HOME}" aria-label="Custom Japan SMART SERIES ホーム">
+      <img class="brand__logo" src="${url('assets/images/cj-logo-h-black.svg')}" alt="Custom Japan">
+      <span class="brand__series">SMART&nbsp;SERIES</span>
+    </a>
     <nav class="nav">
       <div class="nav__has-menu">
         <a href="${HOME}#series">SERIES ▾</a>
@@ -82,7 +76,8 @@ const footerHTML = `
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <b>SMART<i>SERIES</i></b>
+        <img class="footer-logo" src="${url('assets/images/cj-logo-h-white.svg')}" alt="Custom Japan">
+        <span class="footer-series">SMART SERIES</span>
         <p>「ノル人をツクる」をコンセプトに、カスタムジャパンが独自開発したスマートプロダクト・シリーズ。</p>
       </div>
       <div>

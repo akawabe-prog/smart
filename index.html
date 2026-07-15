@@ -16,9 +16,9 @@
     <video src="assets/videos/srd-hero.mp4" autoplay muted loop playsinline poster="assets/prtimes/srd/43_01.png"></video>
   </div>
   <div class="hero__inner">
-    <p class="eyebrow">Smart Products by Custom Japan</p>
+    <p class="eyebrow">Produced by Custom Japan</p>
     <h1 class="h-hero">SMART,<br><span class="outline-type">FOR RIDERS.</span></h1>
-    <p class="hero__lead">ダッシュボード、空気入れ、洗車、エアダスター。<br>ライダーの「あったらいいな」を、手の届く価格で。</p>
+    <p class="hero__lead">バイク用品のプロフェッショナル、<b style="color:#fff;font-weight:700">カスタムジャパンが自信をもってお届けする</b>スマートプロダクト・シリーズ。<br>ダッシュボードから空気入れ、洗車、エアダスターまで。</p>
     <div class="stack-cta mt-m">
       <a href="#series" class="btn btn--lg">シリーズを見る</a>
       <a href="about.html" class="btn btn--ghost btn--lg">ブランドについて</a>
@@ -73,6 +73,24 @@
   </div>
 </section>
 
+<!-- ===== CINEMATIC (Smart Series 映像美) ===== -->
+<section class="section cinema" id="cinema">
+  <div class="wrap">
+    <p class="eyebrow" style="margin-bottom:12px">Cinematic</p>
+    <h2 class="h-display">その造形を、映像で。</h2>
+    <p class="lead mt-s">スマートシリーズのプロダクトフィルム。細部まで作り込まれた造形と質感を、動きの中で。</p>
+  </div>
+  <div class="cinema__stage bleed mt-l">
+    <video id="cinema-video" src="assets/videos/srd-hero.mp4" autoplay muted loop playsinline poster="assets/videos/srd-5-hero-poster.jpg"></video>
+    <div class="cinema__grad"></div>
+    <div class="cinema__cap">
+      <span class="cinema__tag" id="cinema-tag">SRD 5 Pro</span>
+      <h3 class="cinema__title" id="cinema-title">スマートライドダッシュボード</h3>
+    </div>
+    <div class="cinema__tabs" id="cinema-tabs"></div>
+  </div>
+</section>
+
 <!-- ===== LATEST NEWS ===== -->
 <section class="section--tight" id="latest-news">
   <div class="wrap">
@@ -115,6 +133,41 @@
   </div>
 </div>
 
+<script>
+  // ---- Cinematic showcase (Smart Series 映像切替) ----
+  (function () {
+    const FILMS = [
+      { name: 'スマートライドダッシュボード', tag: 'SRD 5 Pro',  src: 'assets/videos/srd-hero.mp4' },
+      { name: 'スマートエアダスター',        tag: 'Air Duster', src: 'assets/videos/airduster-hero.mp4' },
+      { name: 'スマートカーリンク',          tag: 'Car Link',   src: 'assets/videos/carlink-hero.mp4' },
+      { name: 'スマートエアーマルチポンプ',  tag: 'Multi Pump', src: 'assets/videos/multipump-hero.mp4' },
+    ];
+    const video = document.getElementById('cinema-video');
+    const title = document.getElementById('cinema-title');
+    const tag = document.getElementById('cinema-tag');
+    const tabs = document.getElementById('cinema-tabs');
+    if (!video || !tabs) return;
+    tabs.innerHTML = FILMS.map((f, i) =>
+      `<button class="cinema__tab${i === 0 ? ' is-active' : ''}" data-i="${i}">${f.name}</button>`).join('');
+    let cur = 0;
+    const play = (i) => {
+      if (i === cur) return;
+      cur = i;
+      const f = FILMS[i];
+      video.style.opacity = '0';
+      const swap = () => {
+        video.src = f.src; video.load();
+        video.play().catch(() => {});
+        title.textContent = f.name; tag.textContent = f.tag;
+        video.oncanplay = () => { video.style.opacity = '1'; video.oncanplay = null; };
+        setTimeout(() => { video.style.opacity = '1'; }, 600); // フォールバック
+      };
+      setTimeout(swap, 220);
+      tabs.querySelectorAll('.cinema__tab').forEach((b, bi) => b.classList.toggle('is-active', bi === i));
+    };
+    tabs.querySelectorAll('.cinema__tab').forEach((b) => b.addEventListener('click', () => play(Number(b.dataset.i))));
+  })();
+</script>
 <script type="module" src="assets/js/components.js"></script>
 <script type="module">
   import { SERIES } from './assets/js/products.js';
