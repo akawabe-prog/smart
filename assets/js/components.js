@@ -18,9 +18,18 @@ const seriesMenu = SERIES.map((s) => `
   </a>`).join('');
 
 const headerHTML = `
+<div class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__cj" href="https://www.customjapan.net/" target="_blank" rel="noopener" aria-label="カスタムジャパン公式サイト（メーカー）">
+      <span class="topbar__cap">Manufacturer</span>
+      <img src="${url('assets/images/cj-logo-h-text.svg')}" alt="Custom Japan">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+</div>
 <header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="${HOME}">SMART<b>SERIES</b> <small>by Custom Japan</small></a>
+  <div class="site-header__inner">
+    <a class="brand" href="${HOME}">SMART<b>SERIES</b></a>
     <nav class="nav">
       <div class="nav__has-menu">
         <a href="${HOME}#series">SERIES ▾</a>
@@ -36,9 +45,6 @@ const headerHTML = `
       <a class="cart-link" href="${url('cart.html')}" aria-label="カート">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="count" id="cart-count">0</span>
-      </a>
-      <a class="cj-link" href="https://www.customjapan.net/" target="_blank" rel="noopener" aria-label="カスタムジャパン公式サイト" title="カスタムジャパン公式サイト">
-        <img src="${url('assets/images/cj-logo.svg')}" alt="Custom Japan">
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>

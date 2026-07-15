@@ -15,7 +15,7 @@
   <div class="hero__bg">
     <video src="assets/videos/srd-hero.mp4" autoplay muted loop playsinline poster="assets/prtimes/srd/43_01.png"></video>
   </div>
-  <div class="hero__inner wrap">
+  <div class="hero__inner">
     <p class="eyebrow">Smart Products by Custom Japan</p>
     <h1 class="h-hero">SMART,<br><span class="outline-type">FOR RIDERS.</span></h1>
     <p class="hero__lead">ダッシュボード、空気入れ、洗車、エアダスター。<br>ライダーの「あったらいいな」を、手の届く価格で。</p>
@@ -77,7 +77,7 @@
     srd:       { type:'img',   src:'assets/prtimes/srd/43_01.png' },
     carlink:   { type:'video', src:'assets/videos/carlink-hero.mp4' },
     multipump: { type:'img',   src:'assets/motomegane/multipump/DSC2650.jpg' },
-    portable:  { type:'img',   src:'assets/prtimes/portable/70_13.jpg' },
+    portable:  { type:'img',   src:'assets/prtimes/portable/70_02.png' },
     airduster: { type:'video', src:'assets/videos/airduster-hero.mp4' },
   };
   const subs = {
@@ -113,7 +113,7 @@
 
   // ---- marquee ----
   const names = SERIES.map(s => s.short);
-  const seq = names.map(n => `<span>${n}</span><i>◆</i>`).join('');
+  const seq = names.map(n => `<span>${n}</span>`).join('');
   document.getElementById('marquee-track').innerHTML = seq + seq; // 2周ぶんでループ
 
   // ---- best sellers (D2C) ----
@@ -141,7 +141,7 @@
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
 .hero__bg img, .hero__bg video { width: 100%; height: 100%; object-fit: cover; }
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,11,.94) 0%, rgba(10,10,11,.72) 42%, rgba(10,10,11,.28) 100%), linear-gradient(0deg, rgba(10,10,11,.9) 0%, transparent 40%); }
-.hero__inner { position: relative; z-index: 1; }
+.hero__inner { position: relative; z-index: 1; width: 100%; padding-inline: clamp(22px, 2.5vw, 72px); }
 .hero__lead { margin-top: 30px; font-size: clamp(15px,1.5vw,20px); line-height: 1.95; color: #d4d6da; }
 /* ヒーローエントランス（ページロード時） */
 .hero .eyebrow, .hero .h-hero, .hero__lead, .hero .stack-cta { opacity: 0; transform: translateY(30px); animation: heroIn 1s var(--ease) forwards; }

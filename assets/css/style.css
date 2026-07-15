@@ -106,6 +106,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .badge--solid { background: var(--gold); color: #0a0a0b; border-color: var(--gold); }
 .badge--plain { color: var(--ink-soft); border-color: var(--line); }
 
+/* =======================  TOPBAR (メーカー帯)  ======================= */
+.topbar { background: #050506; border-bottom: 1px solid var(--line-2); }
+.topbar__inner { display: flex; align-items: center; justify-content: flex-end; height: 34px; padding-inline: clamp(22px, 2.5vw, 72px); }
+.topbar__cj { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); opacity: .82; transition: opacity .2s var(--ease); }
+.topbar__cj:hover { opacity: 1; }
+.topbar__cap { font-family: var(--font-en); font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.topbar__cj img { height: 15px; width: auto; display: block; }
+.topbar__cj svg { color: var(--muted); flex: none; }
+
 /* =======================  HEADER  ======================= */
 .site-header {
   position: sticky; top: 0; z-index: 100; height: var(--header-h);
@@ -113,10 +122,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   -webkit-backdrop-filter: saturate(160%) blur(16px);
   border-bottom: 1px solid var(--line-2);
 }
-.site-header__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.brand { display: inline-flex; align-items: baseline; gap: .5ch; font-family: var(--font-en); font-weight: 800; letter-spacing: .05em; font-size: 22px; color: #fff; }
+.site-header__inner { height: 100%; display: flex; align-items: center; gap: 20px; width: 100%; padding-inline: clamp(22px, 2.5vw, 72px); }
+.brand { margin-right: auto; display: inline-flex; align-items: baseline; gap: .5ch; font-family: var(--font-en); font-weight: 800; letter-spacing: .05em; font-size: 22px; color: #fff; }
 .brand b { color: var(--gold); }
-.brand small { font-size: 10.5px; letter-spacing: .2em; color: var(--muted); font-weight: 600; text-transform: uppercase; }
 .nav { display: flex; align-items: center; gap: 6px; }
 .nav > a, .nav .nav__has-menu > a {
   font-size: 12.5px; font-weight: 600; letter-spacing: .05em; color: var(--ink-soft);
@@ -144,10 +152,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cart-link:hover { background: var(--gold); color: #0a0a0b; border-color: var(--gold); }
 .cart-link .count { position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 4px; background: var(--gold); color: #0a0a0b; font-size: 10px; font-weight: 800; border-radius: 999px; display: none; place-items: center; }
 .cart-link .count.show { display: grid; }
-/* カスタムジャパン公式リンク（白丸チップ） */
-.cj-link { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: #fff; border: 1px solid var(--line); overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s; }
-.cj-link img { width: 34px; height: 34px; display: block; }
-.cj-link:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(255,255,255,.15); }
 .nav-toggle { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: #fff; align-items: center; justify-content: center; }
 
 /* =======================  FOOTER  ======================= */
@@ -211,8 +215,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* =======================  MARQUEE (editorial strip)  ======================= */
 .marquee { overflow: hidden; border-block: 1px solid var(--line-2); padding-block: 20px; background: var(--bg); }
 .marquee__track { display: flex; gap: 64px; width: max-content; animation: marquee 36s linear infinite; }
-.marquee__track span { font-family: var(--font-en); font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.28); }
-.marquee__track i { font-style: normal; color: var(--gold); font-size: 14px; align-self: center; }
+.marquee__track span { font-family: var(--font-en); font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.3px rgba(255,255,255,.46); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* =======================  SERIES HERO  ======================= */
@@ -365,6 +368,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   .wrap { padding-inline: 22px; }
   .nav, .header-actions .partner-cta { display: none; }
   .nav-toggle { display: inline-flex; }
+  .brand { font-size: 18px; }
+  .header-actions { gap: 10px; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .stat-row { gap: 28px; }
 }
