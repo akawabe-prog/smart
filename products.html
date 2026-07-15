@@ -77,7 +77,7 @@
   // ---- render ----
   document.getElementById('catalog').innerHTML = items.map(p => `
     <a class="pop-card cat-card" href="${p.href}" data-tags="${(p.tags || []).join(' ')}">
-      <div class="pop-media"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+      <div class="pop-media">${p.isNew ? '<span class="new-flag">NEW</span>' : ''}<img src="${p.img}" alt="${p.name}" loading="lazy"></div>
       <span class="badge badge--plain" style="align-self:flex-start">${seriesShort[p.series] || ''}</span>
       <div class="pop-name">${p.name}</div>
       <div class="pop-note">${p.note || ''}</div>

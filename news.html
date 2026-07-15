@@ -20,43 +20,48 @@
 
 <section class="section--tight" style="padding-bottom:clamp(72px,10vw,160px)">
   <div class="wrap wrap-narrow">
-    <ul class="news-list">
-      <li><a href="https://www.motomegane.com/news-release/pickup-motorcycle/customjapan-11_20260616" target="_blank" rel="noopener">
-        <time>2026.06.16</time><span class="n-tag">メディア掲載</span>
-        <span class="n-title">モトメガネ：バイクの洗車から日常生活まで活躍する「スマートエアダスター」レビュー</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000084.000070755.html" target="_blank" rel="noopener">
-        <time>2026.05</time><span class="n-tag">新製品</span>
-        <span class="n-title">「スマートカーリンク」発売 — 差すだけでスマホ連携、履歴を残さない車載デバイス</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000070.000070755.html" target="_blank" rel="noopener">
-        <time>2025.10</time><span class="n-tag">新製品</span>
-        <span class="n-title">「スマートポータブル01 高圧洗浄機」発売 — 電源・水栓不要のポータブル洗浄</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000068.000070755.html" target="_blank" rel="noopener">
-        <time>2025.08</time><span class="n-tag">新製品</span>
-        <span class="n-title">SRDシリーズ第4弾「SRD 5 Slim」発売 — 薄型×タッチのコスパモデル</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000059.000070755.html" target="_blank" rel="noopener">
-        <time>2025.06</time><span class="n-tag">新製品</span>
-        <span class="n-title">フラッグシップ「SRD 5 Pro」発売 — 1000nit・IP67・前後FullHDドラレコ</span></a></li>
-      <li><a href="https://www.motomegane.com/news-release/item-report/customjapan-6_20250430" target="_blank" rel="noopener">
-        <time>2025.04.30</time><span class="n-tag">メディア掲載</span>
-        <span class="n-title">モトメガネ：タイヤ空気圧チェックの神アイテム「スマートエアーマルチポンプ SAP2000」</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000054.000070755.html" target="_blank" rel="noopener">
-        <time>2025.02</time><span class="n-tag">新製品</span>
-        <span class="n-title">「SRD 5 Basic」発売 — CarPlay対応のエントリーモデル</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000053.000070755.html" target="_blank" rel="noopener">
-        <time>2024.12</time><span class="n-tag">新製品</span>
-        <span class="n-title">「スマートエアーマルチポンプ SAP2000」発売 — バイク特化の電動エアポンプ</span></a></li>
-      <li><a href="https://prtimes.jp/main/html/rd/p/000000043.000070755.html" target="_blank" rel="noopener">
-        <time>2024.09</time><span class="n-tag">新製品</span>
-        <span class="n-title">バイク用スマートモニター「スマートライドダッシュボード SRD 5」発売</span></a></li>
-    </ul>
-    <p class="muted mt-m" style="font-size:12.5px">※リリース日はPR TIMES掲載情報に基づきます。外部サイトが開きます。</p>
+    <div class="news-filter" id="news-filter">
+      <button class="chip is-active" data-cat="all">すべて</button>
+      <button class="chip" data-cat="新製品">新製品</button>
+      <button class="chip" data-cat="メディア掲載">メディア掲載</button>
+      <button class="chip" data-cat="イベント出展">イベント出展</button>
+    </div>
+    <ul class="news-list mt-m" id="news-list"></ul>
+    <p class="muted mt-m" style="font-size:12.5px">※リリース日はPR TIMES掲載情報に基づきます。リンクは外部サイト（PR TIMES / 各メディア）が開きます。</p>
   </div>
 </section>
 
 <div id="site-footer"></div>
 <script type="module" src="assets/js/components.js"></script>
-<script type="module" src="assets/js/motion.js"></script>
+<script type="module">
+  import { NEWS } from './assets/js/news.js';
+  const list = document.getElementById('news-list');
+  const render = (cat) => {
+    const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
+    const items = cat === 'all' ? NEWS : NEWS.filter(n => n.cat === cat);
+    list.innerHTML = items.map((n, i) => `
+      <li><a href="${n.url}" target="_blank" rel="noopener">
+        <time>${n.date}</time>
+        <span class="n-tag${tagCls[n.cat] || ''}">${n.cat}</span>
+        ${i === 0 && cat === 'all' ? '<span class="n-new">NEW</span>' : ''}
+        <span class="n-title">${n.title}</span>
+        <span class="n-ext">↗</span>
+      </a></li>`).join('');
+  };
+  render('all');
+  document.querySelectorAll('#news-filter .chip').forEach(c =>
+    c.addEventListener('click', () => {
+      document.querySelectorAll('#news-filter .chip').forEach(x => x.classList.toggle('is-active', x === c));
+      render(c.dataset.cat);
+    }));
+  import('./assets/js/motion.js');
+</script>
 <style>
+.news-filter { display: flex; gap: 10px; flex-wrap: wrap; }
+.n-new { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 2px 7px; }
+.n-ext { margin-left: auto; color: var(--muted); font-size: 13px; }
+.n-tag--media { color: #ff5a5a; border-color: rgba(255,90,90,.5); }
+.n-tag--event { color: #6ea0ff; border-color: rgba(110,160,255,.5); }
 .news-list li { border-bottom: 1px solid var(--line-2); }
 .news-list a { display: flex; align-items: baseline; gap: 18px; padding: 20px 4px; transition: background .2s; flex-wrap: wrap; }
 .news-list a:hover { background: var(--bg-2); }

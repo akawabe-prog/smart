@@ -49,6 +49,44 @@
 <!-- ===== SERIES SHOWCASES (full-bleed, bold) ===== -->
 <div id="series"></div>
 
+<!-- ===== MEDIA & VOICES (信頼担保) ===== -->
+<section class="section" id="media">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">Media &amp; Voices</p>
+        <h2 class="h-display">メディアが、認めた実力。</h2>
+      </div>
+      <a href="news.html" class="link-gold">掲載情報をもっと見る <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <!-- press strip -->
+    <div class="press-strip" id="press-strip"></div>
+    <!-- exhibition credential -->
+    <a class="exhibit-note" href="news.html">
+      <span class="exhibit-note__ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a2 2 0 0 1 2-2h9l-1.5 4L15 11H6M6 21H2M18 21v-6h4v6"/></svg></span>
+      <b>東京・大阪モーターサイクルショー 2026 出展</b>
+      <span>カスタムジャパン20周年・過去最大ブースで、スマートシリーズを体験展示</span>
+      <svg class="exhibit-note__arw" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <!-- voices -->
+    <div class="voices-grid mt-l" id="voices-grid"></div>
+  </div>
+</section>
+
+<!-- ===== LATEST NEWS ===== -->
+<section class="section--tight" id="latest-news">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">News</p>
+        <h2 class="h-section">最新ニュース</h2>
+      </div>
+      <a href="news.html" class="link-gold">すべてのニュース <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <ul class="news-list" id="home-news"></ul>
+  </div>
+</section>
+
 <!-- ===== BRAND STATEMENT ===== -->
 <section class="section">
   <div class="wrap">
@@ -67,6 +105,15 @@
 </section>
 
 <div id="site-footer"></div>
+
+<!-- ===== VIDEO LIGHTBOX ===== -->
+<div class="vmodal" id="video-modal" aria-hidden="true">
+  <div class="vmodal__scrim" data-vclose></div>
+  <div class="vmodal__box">
+    <button class="vmodal__close" data-vclose aria-label="閉じる">✕</button>
+    <div class="vmodal__frame" id="video-frame"></div>
+  </div>
+</div>
 
 <script type="module" src="assets/js/components.js"></script>
 <script type="module">
@@ -123,7 +170,7 @@
       return `
       <a class="pop-card" href="${row.href}">
         <span class="pop-rank${i < 3 ? ' is-top' : ''}">${i + 1}</span>
-        <div class="pop-media"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+        <div class="pop-media">${p.isNew ? '<span class="new-flag">NEW</span>' : ''}<img src="${p.img}" alt="${p.name}" loading="lazy"></div>
         <div class="pop-name">${p.name}</div>
         <div class="pop-note">${row.note}</div>
         <div class="pop-price"><span data-api-price-item-id="${p.id}" data-fallback-price="${p.price}">¥${p.price.toLocaleString()}</span><small>税込</small></div>
@@ -131,7 +178,64 @@
     }).join('');
     // 価格ライブ表示(動的生成後に読み込み)
     import('./assets/js/api-price-display.js');
-    // showcase/popular 生成後にモーションを起動
+  });
+
+  // ---- media & voices (信頼担保) ----
+  import('./assets/js/media.js').then(({ PRESS, VOICES }) => {
+    document.getElementById('press-strip').innerHTML = PRESS.map(p =>
+      `<div class="press-item"><span class="press-name">${p.name}</span><span class="press-kind">${p.kind}</span></div>`
+    ).join('');
+
+    const embedId = (u) => (u.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/) || [])[1] || '';
+    document.getElementById('voices-grid').innerHTML = VOICES.map(v => {
+      if (v.kind === 'YOUTUBE') {
+        return `
+        <a class="voice voice--video" href="${v.url}" target="_blank" rel="noopener" data-embed="${embedId(v.url)}">
+          <div class="voice__thumb"><img src="${v.thumb}" alt="" loading="lazy"><span class="voice__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+          <div class="voice__body">
+            <span class="voice__tag voice__tag--yt">YouTube</span>
+            <p class="voice__quote">${v.quote}</p>
+            <span class="voice__src">${v.source} <em>${v.handle}</em></span>
+          </div>
+        </a>`;
+      }
+      return `
+      <a class="voice" href="${v.url}" target="_blank" rel="noopener">
+        <div class="voice__body">
+          <span class="voice__tag">MEDIA</span>
+          <p class="voice__quote">“${v.quote}”</p>
+          <span class="voice__src">${v.source} <em>${v.date}</em></span>
+        </div>
+      </a>`;
+    }).join('');
+
+    // ---- video lightbox（インライン再生） ----
+    const modal = document.getElementById('video-modal');
+    const frame = document.getElementById('video-frame');
+    const openVideo = (id) => {
+      frame.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+    };
+    const closeVideo = () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); frame.innerHTML = ''; document.body.style.overflow = ''; };
+    document.querySelectorAll('.voice--video[data-embed]').forEach(a => a.addEventListener('click', (e) => {
+      const id = a.dataset.embed; if (!id) return; e.preventDefault(); openVideo(id);
+    }));
+    modal.querySelectorAll('[data-vclose]').forEach(el => el.addEventListener('click', closeVideo));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideo(); });
+  });
+
+  // ---- latest news (トップ最新3件) ----
+  import('./assets/js/news.js').then(({ NEWS }) => {
+    const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
+    document.getElementById('home-news').innerHTML = NEWS.slice(0, 3).map((n, i) => `
+      <li><a href="${n.url}" target="_blank" rel="noopener">
+        <time>${n.date}</time>
+        <span class="n-tag${tagCls[n.cat] || ''}">${n.cat}</span>
+        ${i === 0 ? '<span class="n-new">NEW</span>' : ''}
+        <span class="n-title">${n.title}</span>
+        <span class="n-ext">↗</span>
+      </a></li>`).join('');
+    // 全セクション生成後にモーションを起動
     import('./assets/js/motion.js');
   });
 </script>

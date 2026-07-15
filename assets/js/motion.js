@@ -13,7 +13,7 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const REVEAL_SELECTOR = [
   '.eyebrow', 'h1', 'h2', 'h3:not(.site-footer h3)', '.lead', '.stack-cta',
   '.showcase__index', '.showcase__title', '.showcase__sub', '.showcase__cta',
-  '.stat', '.lineup__item', '.feature', '.split__media', '.big-card', '.pop-card',
+  '.stat', '.lineup__item', '.feature', '.split__media', '.big-card', '.pop-card', '.voice', '.press-item', '.exhibit-note',
   '.compare-wrap', '.spec-grid', '.buy', '.gallery__main', '.breadcrumb',
 ].join(',');
 

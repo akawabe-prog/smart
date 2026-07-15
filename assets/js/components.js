@@ -12,6 +12,13 @@ const url = (p) => `${ROOT}${p}`;
 // ホームへのリンクは必ず "./"(ルート時) か ROOT を使う
 const HOME = ROOT || './';
 
+// SNS導線。url が空の項目は表示しない（ブランド公式ハンドルが決まり次第 url を入れる）
+const SOCIAL = [
+  { name: 'YouTube',   url: 'https://youtu.be/cXL8Fi7DeMU', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg>' },
+  { name: 'Instagram', url: '', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>' },
+  { name: 'X',         url: '', icon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.4 8.4L23 22h-6.8l-5.3-6.9L4.8 22H2l7.9-9L1.6 2h6.9l4.8 6.3zM17.7 20.1h1.7L7.4 3.8H5.6z"/></svg>' },
+].filter((s) => s.url);
+
 const seriesMenu = SERIES.map((s) => `
   <a href="${url(`series/${s.slug}/`)}">
     <span>${s.name}</span><em>${s.tagline}</em>
@@ -59,6 +66,7 @@ const headerHTML = `
     <div style="clear:both;height:8px"></div>
     ${SERIES.map((s) => `<a href="${url(`series/${s.slug}/`)}">${s.name}</a>`).join('')}
     <a href="${url('products.html')}">PRODUCT</a>
+    <a href="${url('stores.html')}">取扱店・購入方法</a>
     <a href="${url('about.html')}">ABOUT</a>
     <a href="${url('support.html')}">SUPPORT</a>
     <a href="${url('faq.html')}">FAQ</a>
@@ -86,6 +94,7 @@ const footerHTML = `
         <h4>Support</h4>
         <ul>
           <li><a href="${url('support.html')}">サポート</a></li>
+          <li><a href="${url('guide.html')}">ご利用ガイド（配送・返品）</a></li>
           <li><a href="${url('faq.html')}">よくある質問</a></li>
           <li><a href="${url('contact.html')}">お問い合わせ</a></li>
         </ul>
@@ -94,11 +103,16 @@ const footerHTML = `
         <h4>Company</h4>
         <ul>
           <li><a href="${url('about.html')}">ブランドについて</a></li>
+          <li><a href="${url('stores.html')}">取扱店・購入方法</a></li>
           <li><a href="https://www.customjapan.net/" target="_blank" rel="noopener">Custom Japan</a></li>
           <li><a href="${url('policy.html')}">プライバシーポリシー</a></li>
         </ul>
       </div>
     </div>
+    ${SOCIAL.length ? `<div class="footer-social">
+      <span class="footer-social__label">Follow</span>
+      ${SOCIAL.map((s) => `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.name}">${s.icon}</a>`).join('')}
+    </div>` : ''}
     <div class="footer-bottom">
       <span>© ${'2026'} Custom Japan Co., Ltd. All rights reserved.</span>
       <span>SMART SERIES — smartseries.customjapan.net</span>

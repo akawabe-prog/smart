@@ -29,7 +29,7 @@ export const SERIES = [
     tagline: 'CarPlay / Android Auto アダプター',
     lead: '差すだけでスマホ連携。純正ナビが最新のコネクテッド環境に変わる。',
     products: [
-      { id: '29290741', slug: 'carlink', name: 'スマートカーリンク', price: 11600, img: 'assets/products/29290741/main.jpg', tags: ['car'], note: '差すだけでスマホ連携・履歴を残さない', href: 'series/carlink/' },
+      { id: '29290741', slug: 'carlink', name: 'スマートカーリンク', price: 11600, img: 'assets/products/29290741/main.jpg', tags: ['car'], note: '差すだけでスマホ連携・履歴を残さない', href: 'series/carlink/', isNew: true },
     ],
   },
   {
@@ -61,7 +61,7 @@ export const SERIES = [
     tagline: 'コードレスエアダスター',
     lead: '微風から最大35m/sまで無段階。271gで、洗車も日常もこれ一台。',
     products: [
-      { id: '29290758', slug: 'airduster', name: 'スマートエアダスター', price: 6028, img: 'assets/products/29290758/main.jpg', tags: ['bike', 'car', 'daily'], note: '洗車の水滴からPCの埃まで、風で解決', href: 'series/airduster/' },
+      { id: '29290758', slug: 'airduster', name: 'スマートエアダスター', price: 6028, img: 'assets/products/29290758/main.jpg', tags: ['bike', 'car', 'daily'], note: '洗車の水滴からPCの埃まで、風で解決', href: 'series/airduster/', isNew: true },
     ],
   },
 ];
