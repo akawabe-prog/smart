@@ -131,9 +131,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="../../assets/js/components.js?v=11"></script>
+<script type="module" src="../../assets/js/components.js?v=13"></script>
 <script type="module">
-  import { seriesBySlug } from '../../assets/js/products.js?v=11';
+  import { seriesBySlug } from '../../assets/js/products.js?v=13';
   const ROOT = document.body.dataset.root || '';
   const others = seriesBySlug('srd').products.filter(p => p.slug !== 'srd-5-slim');
   document.getElementById('other-models').innerHTML = others.map(m => `
@@ -149,8 +149,8 @@
       </div>
     </a>`).join('');
 </script>
-<script type="module" src="../../assets/js/pdp.js?v=11"></script>
-<script type="module" src="../../assets/js/api-price-display.js?v=11"></script>
-<script type="module" src="../../assets/js/motion.js?v=11"></script>
+<script type="module" src="../../assets/js/pdp.js?v=13"></script>
+<script type="module" src="../../assets/js/api-price-display.js?v=13"></script>
+<script type="module" src="../../assets/js/motion.js?v=13"></script>
 </body>
 </html>

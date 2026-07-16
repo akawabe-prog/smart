@@ -59,7 +59,7 @@ export const SERIES = [
     name: 'スマートエアダスター',
     short: 'AIR DUSTER',
     tagline: 'コードレスエアダスター',
-    lead: '微風から最大35m/sまで無段階。271gで、洗車も日常もこれ一台。',
+    lead: '洗車も掃除も、これ一台。微風から最大35m/sまで無段階、271gのコードレス。',
     products: [
       { id: '29290758', slug: 'airduster', name: 'スマートエアダスター', price: 6028, msrp: 7480, img: 'assets/products/29290758/main.jpg', tags: ['bike', 'car', 'daily'], note: '洗車の水滴からPCの埃まで、風で解決', href: 'series/airduster/', isNew: true },
     ],

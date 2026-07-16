@@ -4,7 +4,7 @@
    data-root 属性でルート相対パス(サブディレクトリ対応)を渡す。
    例: <body data-root="../../"> → series/srd/ からの相対
    ========================================================================= */
-import { SERIES } from './products.js?v=11';
+import { SERIES } from './products.js?v=13';
 
 const ROOT = document.body.getAttribute('data-root') || '';
 const url = (p) => `${ROOT}${p}`;
@@ -83,7 +83,7 @@ const footerHTML = `
       <div class="footer-brand">
         <a href="https://www.customjapan.net/" target="_blank" rel="noopener" aria-label="カスタムジャパン公式サイト"><img class="footer-logo" src="${url('assets/images/cj-logo-h-white.svg')}" alt="Custom Japan"></a>
         <span class="footer-series">SMART SERIES</span>
-        <p>「ノル人をツクる」をコンセプトに、カスタムジャパンが独自開発したスマートプロダクト・シリーズ。</p>
+        <p>「ノル人をツクる」をコンセプトに、カスタムジャパンが独自開発した Smart Series（スマートシリーズ）。</p>
       </div>
       <div>
         <h4>Series</h4>

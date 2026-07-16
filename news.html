@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ニュース ｜ SMART SERIES</title>
-<meta name="description" content="Smart Series の新製品リリース・メディア掲載情報。">
+<meta name="description" content="Smart Series（スマートシリーズ）の新製品リリース・メディア掲載情報。">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body data-root="">
@@ -33,9 +33,9 @@
 </section>
 
 <div id="site-footer"></div>
-<script type="module" src="assets/js/components.js?v=11"></script>
+<script type="module" src="assets/js/components.js?v=13"></script>
 <script type="module">
-  import { NEWS } from './assets/js/news.js?v=11';
+  import { NEWS } from './assets/js/news.js?v=13';
   const list = document.getElementById('news-list');
   const render = (cat) => {
     const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
@@ -55,7 +55,7 @@
       document.querySelectorAll('#news-filter .chip').forEach(x => x.classList.toggle('is-active', x === c));
       render(c.dataset.cat);
     }));
-  import('./assets/js/motion.js?v=11');
+  import('./assets/js/motion.js?v=13');
 </script>
 <style>
 .news-filter { display: flex; gap: 10px; flex-wrap: wrap; }
