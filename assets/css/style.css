@@ -321,24 +321,46 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ecard:hover .ecard__cta svg { transform: translate(3px, -3px); }
 @media (max-width: 760px) { .event-grid { grid-template-columns: 1fr; } .ecard { aspect-ratio: 4 / 5; } .ecard__grad { background: linear-gradient(0deg, rgba(10,10,11,.94) 0%, rgba(10,10,11,.55) 48%, rgba(10,10,11,.08) 100%); } }
 
-/* =======================  BRAND BAND (Maker Direct 帯)  ======================= */
-.brandband {
-  position: relative;
-  overflow: hidden;
+/* =======================  MAKER DIRECT (visual storytelling)  ======================= */
+.mdirect { position: relative; overflow: hidden; border-block: 1px solid var(--line-2); }
+.mdirect__bg { position: absolute; inset: 0; }
+.mdirect__bg img { width: 100%; height: 100%; object-fit: cover; object-position: 0% center; filter: brightness(.9); }
+.mdirect__bg::after {
+  content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(135% 130% at 100% 0%, rgba(200,162,78,.13), transparent 55%),
-    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
-  border-block: 1px solid var(--gold-line);
+    linear-gradient(90deg, rgba(10,10,11,.94) 0%, rgba(10,10,11,.82) 42%, rgba(10,10,11,.42) 72%, rgba(10,10,11,.30) 100%),
+    linear-gradient(0deg, rgba(10,10,11,.88) 0%, transparent 34%);
 }
-.brandband .wrap { position: relative; z-index: 1; }
-.brandband__grid { display: grid; grid-template-columns: 1fr auto; gap: clamp(28px, 5vw, 72px); align-items: center; }
-.brandband__aside { justify-self: end; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.brandband__by { font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-.brandband__mascot { width: clamp(150px, 17vw, 230px); background: #fff; border-radius: 20px; padding: clamp(14px, 1.4vw, 22px); box-shadow: 0 18px 44px rgba(0,0,0,.4); display: block; }
-@media (max-width: 860px) {
-  .brandband__grid { grid-template-columns: 1fr; }
-  .brandband__aside { justify-self: start; flex-direction: row; margin-top: 8px; }
-  .brandband__mascot { width: 128px; }
+.mdirect__inner { position: relative; z-index: 1; padding-block: clamp(80px, 11vw, 160px); }
+.mdirect__title { font-weight: 800; font-size: clamp(52px, 8.5vw, 128px); line-height: .94; letter-spacing: -.02em; color: #fff; }
+.mdirect__lead { margin-top: 26px; font-size: clamp(15px, 1.5vw, 18px); line-height: 2.1; color: var(--ink-soft); }
+.mdirect__lead b { color: #fff; }
+/* value chain */
+.mdchain { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: clamp(30px, 3.6vw, 48px); padding: 0; list-style: none; }
+.mdchain__step {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 13.5px; font-weight: 700; color: #eceded;
+  border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 10px 18px;
+  background: rgba(10,10,11,.5); backdrop-filter: blur(3px);
+}
+.mdchain__step i { font-style: normal; font-family: var(--font-en); font-size: 10px; font-weight: 800; letter-spacing: .12em; color: var(--gold); }
+.mdchain__step:not(:first-child)::before {
+  content: ""; width: 22px; height: 1px; background: var(--gold-line);
+  margin-right: 10px; margin-left: -19px; flex: none;
+}
+.mdchain__you { color: #0a0a0b; background: var(--gold); border-color: var(--gold); font-weight: 800; }
+/* foot: stats + brand */
+.mdirect__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-top: clamp(36px, 4.6vw, 64px); padding-top: clamp(22px, 2.6vw, 34px); border-top: 1px solid rgba(255,255,255,.14); }
+.mdirect__brand { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.mdirect__by { font-family: var(--font-en); font-size: 10.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.mdirect__brand img { width: clamp(180px, 17vw, 236px); height: auto; display: block; }
+@media (max-width: 760px) {
+  .mdirect__bg img { object-position: 12% center; }
+  .mdchain { gap: 8px; }
+  .mdchain__step { padding: 8px 14px; font-size: 12.5px; }
+  .mdchain__step:not(:first-child)::before { width: 12px; margin-left: -14px; margin-right: 6px; }
+  .mdirect__foot { flex-direction: column; align-items: flex-start; }
+  .mdirect__brand { align-items: flex-start; }
 }
 
 /* =======================  NEWS LIST  ======================= */

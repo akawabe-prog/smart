@@ -128,24 +128,35 @@
   </div>
 </section>
 
-<!-- ===== BRAND STATEMENT (メーカー帯) ===== -->
-<section class="section brandband bleed">
-  <div class="wrap brandband__grid">
-    <div class="brandband__main">
+<!-- ===== BRAND STATEMENT (Maker Direct — visual storytelling) ===== -->
+<section class="mdirect bleed">
+  <div class="mdirect__bg"><img src="assets/media/maker-circuit.jpg" alt="" loading="lazy"></div>
+  <div class="mdirect__inner">
+    <div class="wrap">
       <p class="eyebrow">Why Smart Series</p>
-      <h2 class="h-display h-en" style="font-size:clamp(30px,4.6vw,60px)">Maker Direct</h2>
-      <p class="head-sub">企画から製造・販売まで、カスタムジャパンがダイレクトに。</p>
-      <p class="lead mt-m" style="max-width:56ch">全国のバイク販売店の90％以上が会員という大規模流通ネットワークを持つ、大阪発のカスタムジャパン。企画・開発・製造・販売を一貫して行うことで、<b style="color:#fff">「驚き価格で、安心品質」</b>を実現しています。</p>
-      <div class="mt-m"><a href="about.html" class="link-gold">ブランドの開発思想と経緯を読む <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-      <div class="stat-row mt-l" style="gap:72px">
-        <div class="stat"><b><span data-count="5">0</span></b><span>SMART SERIES</span></div>
-        <div class="stat"><b><span data-count="90">0</span><span class="u">%+</span></b><span>全国バイク店の会員比率</span></div>
-        <div class="stat"><b>2005<span class="u">創業</span></b><span>大阪・日本橋から全国へ</span></div>
+      <h2 class="mdirect__title h-en">MAKER<br><span class="outline-type">DIRECT.</span></h2>
+      <p class="mdirect__lead">企画も、開発も、製造も、販売も。<br>間に、誰も挟まない。だから<b>「驚き価格で、安心品質」</b>。</p>
+
+      <ol class="mdchain" aria-label="企画から販売までの一貫体制">
+        <li class="mdchain__step"><i>01</i>企画</li>
+        <li class="mdchain__step"><i>02</i>開発</li>
+        <li class="mdchain__step"><i>03</i>製造</li>
+        <li class="mdchain__step"><i>04</i>販売</li>
+        <li class="mdchain__step mdchain__you">あなたへ</li>
+      </ol>
+
+      <div class="mdirect__foot">
+        <div class="stat-row" style="gap:clamp(32px,5vw,72px)">
+          <div class="stat"><b><span data-count="5">0</span></b><span>SMART SERIES</span></div>
+          <div class="stat"><b><span data-count="90">0</span><span class="u">%+</span></b><span>全国バイク店の会員比率</span></div>
+          <div class="stat"><b>1954<span class="u">創業</span></b><span>前身・日本モーターパーツから</span></div>
+        </div>
+        <div class="mdirect__brand">
+          <span class="mdirect__by">Produced by</span>
+          <img src="assets/images/cj-logo-h-white.svg" alt="Custom Japan" width="1600" height="250">
+        </div>
       </div>
-    </div>
-    <div class="brandband__aside">
-      <span class="brandband__by">Produced by</span>
-      <img class="brandband__mascot" src="assets/images/cj-logo.svg" alt="Custom Japan" width="1600" height="1600">
+      <div class="mt-m"><a href="about.html" class="link-gold">ブランドの開発思想と経緯を読む <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -187,7 +198,7 @@
     portable: 'Smart Portable', airduster: 'Smart Air Duster',
   };
   const HERO = {
-    srd:       'assets/prtimes/srd/43_01.png',
+    srd:       'assets/cg/srd5-cg-rock.jpg',
     carlink:   'assets/videos/carlink-tile.jpg',
     multipump: 'assets/videos/multipump-hero-poster.jpg',
     portable:  'assets/motomegane/portable/smartportable-wash.jpg',
