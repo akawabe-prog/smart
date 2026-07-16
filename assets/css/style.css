@@ -321,6 +321,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 .ecard:hover .ecard__cta svg { transform: translate(3px, -3px); }
 @media (max-width: 760px) { .event-grid { grid-template-columns: 1fr; } .ecard { aspect-ratio: 4 / 5; } .ecard__grad { background: linear-gradient(0deg, rgba(10,10,11,.94) 0%, rgba(10,10,11,.55) 48%, rgba(10,10,11,.08) 100%); } }
 
+/* =======================  BRAND BAND (Maker Direct 帯)  ======================= */
+.brandband {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(135% 130% at 100% 0%, rgba(200,162,78,.13), transparent 55%),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+  border-block: 1px solid var(--gold-line);
+}
+.brandband .wrap { position: relative; z-index: 1; }
+.brandband__brand { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; flex-wrap: wrap; }
+.brandband__by { font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.brandband__logo { height: 36px; width: auto; }
+@media (max-width: 640px) { .brandband__brand { gap: 12px; margin-bottom: 26px; } .brandband__logo { height: 28px; } }
+
 /* =======================  NEWS LIST  ======================= */
 .news-list li { border-bottom: 1px solid var(--line-2); }
 .news-list a { display: flex; align-items: baseline; gap: 16px; padding: 18px 4px; transition: background .2s; flex-wrap: wrap; }
