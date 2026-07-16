@@ -173,9 +173,9 @@
     io.observe(wall);
   })();
 </script>
-<script type="module" src="assets/js/components.js?v=6"></script>
+<script type="module" src="assets/js/components.js?v=7"></script>
 <script type="module">
-  import { SERIES } from './assets/js/products.js?v=6';
+  import { SERIES } from './assets/js/products.js?v=7';
 
   // ---- series index: 2カラム フルブリード（英語主体・洗練） ----
   const EN = {
@@ -186,7 +186,7 @@
     srd:       'assets/prtimes/srd/43_01.png',
     carlink:   'assets/videos/carlink-tile.jpg',
     multipump: 'assets/videos/multipump-hero-poster.jpg',
-    portable:  'assets/prtimes/portable/70_13.jpg',
+    portable:  'assets/motomegane/portable/smartportable-wash.jpg',
     airduster: 'assets/motomegane/airduster/IMG_0335.jpg',
   };
   const arw = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
@@ -218,7 +218,7 @@
   document.getElementById('marquee-track').innerHTML = seq + seq; // 2周ぶんでループ
 
   // ---- best sellers (D2C) ----
-  import('./assets/js/products.js?v=6').then(({ POPULAR, productById }) => {
+  import('./assets/js/products.js?v=7').then(({ POPULAR, productById }) => {
     const offLine = (p) => {
       const off = p.msrp ? Math.round((1 - p.price / p.msrp) * 100) : 0;
       return off >= 5 ? `<div class="price-line price-line--s"><s class="msrp">¥${p.msrp.toLocaleString()}</s><span class="off-badge" data-off-id="${p.id}" data-msrp="${p.msrp}">${off}% OFF</span></div>` : '';
@@ -240,11 +240,11 @@
       </a>`;
     }).join('');
     // 価格ライブ表示(動的生成後に読み込み)
-    import('./assets/js/api-price-display.js?v=6');
+    import('./assets/js/api-price-display.js?v=7');
   });
 
   // ---- media & voices (信頼担保) ----
-  import('./assets/js/media.js?v=6').then(({ PRESS, VOICES, EVENTS }) => {
+  import('./assets/js/media.js?v=7').then(({ PRESS, VOICES, EVENTS }) => {
     // ---- events（ビジュアル・サムネイル型） ----
     const eGrid = document.getElementById('event-grid');
     if (eGrid && EVENTS) eGrid.innerHTML = EVENTS.map(e => `
@@ -268,8 +268,8 @@
     document.getElementById('voices-grid').innerHTML = VOICES.map(v => {
       if (v.kind === 'YOUTUBE') {
         return `
-        <a class="voice voice--video" href="${v.url}" target="_blank" rel="noopener" data-embed="${embedId(v.url)}">
-          <div class="voice__thumb"><img src="${v.thumb}" alt="" loading="lazy"><span class="voice__play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <a class="voice voice--media" href="${v.url}" target="_blank" rel="noopener">
+          <div class="voice__thumb"><img src="${v.thumb}" alt="" loading="lazy"><span class="voice__ext"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
           <div class="voice__body">
             <span class="voice__tag voice__tag--yt">YouTube</span>
             <p class="voice__quote">${v.quote}</p>
@@ -304,7 +304,7 @@
   });
 
   // ---- latest news (トップ最新3件) ----
-  import('./assets/js/news.js?v=6').then(({ NEWS }) => {
+  import('./assets/js/news.js?v=7').then(({ NEWS }) => {
     const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
     document.getElementById('home-news').innerHTML = NEWS.slice(0, 3).map((n, i) => `
       <li><a href="${n.url}" target="_blank" rel="noopener">
@@ -315,7 +315,7 @@
         <span class="n-ext">↗</span>
       </a></li>`).join('');
     // 全セクション生成後にモーションを起動
-    import('./assets/js/motion.js?v=6');
+    import('./assets/js/motion.js?v=7');
   });
 </script>
 <style>
