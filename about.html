@@ -109,6 +109,7 @@
   document.getElementById('series-index').innerHTML = SERIES.map((s,i) => `
     <a class="lineup__item" href="series/${s.slug}/">
       <span class="badge badge--plain">0${i+1}</span>
+      <div class="m-img"><img src="${s.products[0].img}" alt="${s.name}" loading="lazy"></div>
       <div class="m-name" style="font-size:19px">${s.name}</div>
       <div class="m-desc">${s.tagline}</div>
       <div class="m-foot">
