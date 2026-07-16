@@ -12,8 +12,10 @@
 
 <!-- ===== HERO (full-bleed video) ===== -->
 <section class="hero bleed">
-  <div class="hero__bg">
-    <video src="assets/videos/srd5-cg-hero.mp4" autoplay muted loop playsinline poster="assets/videos/srd5-cg-hero-poster.jpg"></video>
+  <div class="hero__bg" id="hero-rotator">
+    <video class="hero__v is-on" src="assets/videos/srd5-cg-hero.mp4" autoplay muted loop playsinline poster="assets/videos/srd5-cg-hero-poster.jpg"></video>
+    <video class="hero__v" src="assets/videos/airduster-cg-hero.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <video class="hero__v" src="assets/videos/carlink-hero.mp4" autoplay muted loop playsinline preload="auto"></video>
   </div>
   <div class="hero__inner">
     <p class="eyebrow">Produced by Custom Japan</p>
@@ -336,12 +338,28 @@
     // 全セクション生成後にモーションを起動
     import('./assets/js/motion.js?v=8');
   });
+
+  // ---- HERO: 3D CG映像を4秒ごとにクロスフェード切替 ----
+  {
+    const vids = [...document.querySelectorAll('#hero-rotator .hero__v')];
+    let cur = 0;
+    const play = (v) => { const p = v.play(); if (p) p.catch(() => {}); };
+    vids.forEach(play);
+    setInterval(() => {
+      cur = (cur + 1) % vids.length;
+      vids.forEach((v, i) => v.classList.toggle('is-on', i === cur));
+      play(vids[cur]);
+    }, 4000);
+  }
 </script>
 <style>
 /* hero (page-local) */
 .hero { position: relative; min-height: clamp(560px, 84vh, 860px); display: flex; align-items: flex-end; overflow: hidden; }
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
 .hero__bg img, .hero__bg video { width: 100%; height: 100%; object-fit: cover; }
+/* 3D CG映像を4秒ごとにクロスフェード切替 */
+.hero__v { position: absolute; inset: 0; opacity: 0; transition: opacity .9s var(--ease); }
+.hero__v.is-on { opacity: 1; }
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,11,.66) 0%, rgba(10,10,11,.38) 42%, rgba(10,10,11,.08) 100%), linear-gradient(0deg, rgba(10,10,11,.86) 0%, rgba(10,10,11,.45) 26%, transparent 52%); }
 .hero__inner { position: relative; z-index: 1; width: 100%; padding-inline: clamp(24px, 7vw, 160px); padding-bottom: clamp(88px, 13vh, 140px); }
 .hero__lead { margin-top: 30px; font-size: clamp(15px,1.5vw,20px); line-height: 1.95; color: #d4d6da; }
