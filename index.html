@@ -13,7 +13,7 @@
 <!-- ===== HERO (full-bleed video) ===== -->
 <section class="hero bleed">
   <div class="hero__bg">
-    <video src="assets/videos/srd-hero.mp4" autoplay muted loop playsinline poster="assets/prtimes/srd/43_01.png"></video>
+    <video src="assets/videos/srd5-cg-hero.mp4" autoplay muted loop playsinline poster="assets/videos/srd5-cg-hero-poster.jpg"></video>
   </div>
   <div class="hero__inner">
     <p class="eyebrow">Produced by Custom Japan</p>
@@ -225,7 +225,11 @@
       <h2 class="h-display h-en">5 Smart Series</h2>
       <p class="lead mt-s">カスタムジャパンが独自開発した、5つのスマートプロダクト・シリーズ。</p>
     </div>
-    <div class="series-grid2 bleed">${SERIES.map((s, i) => tile(s, i)).join('')}</div>`;
+    <div class="series-grid2 bleed">${(() => {
+      // TOPのみの表示順: CG素材のあるエアダスターを03へ、マルチポンプを05へ（データ順は不変）
+      const order = ['srd', 'carlink', 'airduster', 'portable', 'multipump'];
+      return order.map((slug, i) => tile(SERIES.find(s => s.slug === slug), i)).join('');
+    })()}</div>`;
 
   // ---- marquee ----
   const names = SERIES.map(s => s.short);
