@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>シリーズ一覧 ｜ SMART SERIES</title>
+<meta name="description" content="Smart Series 全5シリーズ。スマートライドダッシュボード、スマートカーリンク、スマートエアーマルチポンプ、スマートポータブル、スマートエアダスター。各シリーズの特徴と製品ラインナップ。">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-root="../">
+<div id="site-header"></div>
+
+<!-- ===== HEAD ===== -->
+<section class="section" style="padding-top:clamp(56px,8vw,110px);padding-bottom:clamp(30px,4vw,56px)">
+  <div class="wrap">
+    <nav class="breadcrumb"><a href="../">SMART SERIES</a> / シリーズ一覧</nav>
+    <p class="eyebrow">The Series</p>
+    <h1 class="h-display h-en">5 Smart Series</h1>
+    <p class="head-sub">カスタムジャパンが独自開発した、5つのスマートプロダクト・シリーズ。</p>
+  </div>
+</section>
+
+<!-- ===== SERIES ROWS (JSで生成) ===== -->
+<div id="series-rows"></div>
+
+<!-- ===== CTA ===== -->
+<section class="section panel center">
+  <div class="wrap wrap-narrow">
+    <p class="eyebrow no-rule" style="justify-content:center">Catalog</p>
+    <h2 class="h-section h-en">All Products</h2>
+    <p class="head-sub">用途から選ぶなら、商品一覧へ。</p>
+    <div class="stack-cta mt-m center">
+      <a href="../products.html" class="btn btn--lg">商品一覧を見る</a>
+      <a href="../#popular" class="btn btn--ghost btn--lg">人気ランキング</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script type="module" src="../assets/js/components.js?v=4"></script>
+<script type="module">
+  import { SERIES } from '../assets/js/products.js?v=4';
+  const ROOT = document.body.dataset.root || '';
+
+  const EN = {
+    srd: 'Smart Ride Dashboard', carlink: 'Smart Car Link', multipump: 'Smart Air Multi Pump',
+    portable: 'Smart Portable', airduster: 'Smart Air Duster',
+  };
+  const MEDIA = {
+    srd:       'assets/prtimes/srd/43_01.png',
+    carlink:   'assets/videos/carlink-tile.jpg',
+    multipump: 'assets/videos/multipump-hero-poster.jpg',
+    portable:  'assets/prtimes/portable/70_13.jpg',
+    airduster: 'assets/motomegane/airduster/IMG_0335.jpg',
+  };
+  const arw = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+  const chip = (p) => {
+    const off = p.msrp ? Math.round((1 - p.price / p.msrp) * 100) : 0;
+    return `
+    <a class="pchip" href="${ROOT}${p.href}">
+      <span class="pchip__img"><img src="${ROOT}${p.img}" alt="" loading="lazy"></span>
+      <span class="pchip__body">
+        <span class="pchip__name">${p.name}${p.isNew ? ' <i class="pchip__new">NEW</i>' : ''}</span>
+        <span class="pchip__price"><span data-api-price-item-id="${p.id}" data-fallback-price="${p.price}">¥${p.price.toLocaleString()}</span><small>税込</small>
+        ${off >= 5 ? `<em class="off-badge" style="font-size:9px;padding:2px 6px" data-off-id="${p.id}" data-msrp="${p.msrp}">${off}% OFF</em>` : ''}</span>
+      </span>
+    </a>`;
+  };
+
+  document.getElementById('series-rows').innerHTML = SERIES.map((s, i) => `
+    <section class="section--tight srow${i % 2 ? ' srow--rev' : ''}">
+      <div class="wrap">
+        <div class="split${i % 2 ? ' rev' : ''}">
+          <div class="split__media srow__media">
+            <a href="${s.slug}/"><img src="${ROOT}${MEDIA[s.slug]}" alt="${EN[s.slug]}" loading="${i === 0 ? 'eager' : 'lazy'}"></a>
+          </div>
+          <div>
+            <p class="eyebrow">0${i + 1} — ${s.short}</p>
+            <h2 class="h-display h-en" style="font-size:clamp(26px,3.6vw,46px)">${EN[s.slug]}</h2>
+            <p class="head-sub">${s.name} — ${s.tagline}</p>
+            <p class="lead mt-s" style="font-size:15px">${s.lead}</p>
+            <div class="pchips mt-m">${s.products.map(chip).join('')}</div>
+            <div class="stack-cta mt-m">
+              <a href="${s.slug}/" class="btn">シリーズを詳しく ${arw}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    ${i < 4 ? '<hr class="divider wrap" style="max-width:var(--wrap)">' : ''}
+  `).join('');
+
+  import('../assets/js/api-price-display.js?v=4');
+  import('../assets/js/motion.js?v=4');
+</script>
+<style>
+.srow { padding-block: clamp(40px, 5.5vw, 72px); }
+.srow__media img { aspect-ratio: 4/3; object-fit: cover; width: 100%; transition: transform .5s var(--ease); }
+.srow__media a { display: block; overflow: hidden; border-radius: 6px; }
+.srow__media a:hover img { transform: scale(1.04); }
+/* product chips */
+.pchips { display: grid; gap: 8px; }
+.pchip { display: flex; align-items: center; gap: 12px; padding: 9px 12px; border: 1px solid var(--line-2); border-radius: 9px; transition: border-color .2s, background .2s; }
+.pchip:hover { border-color: var(--gold-line); background: var(--bg-2); }
+.pchip__img { width: 46px; height: 46px; flex: none; background: #fff; border-radius: 6px; overflow: hidden; display: grid; place-items: center; }
+.pchip__img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+.pchip__body { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex: 1; min-width: 0; flex-wrap: wrap; }
+.pchip__name { font-size: 13.5px; font-weight: 700; color: #fff; }
+.pchip__new { font-style: normal; font-size: 9px; font-weight: 800; color: #0a0a0b; background: var(--gold); border-radius: 999px; padding: 2px 6px; vertical-align: 1px; }
+.pchip__price { font-family: var(--font-en); font-weight: 800; font-size: 14.5px; color: #fff; display: inline-flex; align-items: baseline; gap: 6px; }
+.pchip__price small { font-size: 10px; color: var(--muted); font-weight: 600; }
+</style>
+</body>
+</html>

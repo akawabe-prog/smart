@@ -4,7 +4,7 @@
    data-root 属性でルート相対パス(サブディレクトリ対応)を渡す。
    例: <body data-root="../../"> → series/srd/ からの相対
    ========================================================================= */
-import { SERIES } from './products.js';
+import { SERIES } from './products.js?v=4';
 
 const ROOT = document.body.getAttribute('data-root') || '';
 const url = (p) => `${ROOT}${p}`;
@@ -21,7 +21,8 @@ const SOCIAL = [
 
 const seriesMenu = SERIES.map((s) => `
   <a href="${url(`series/${s.slug}/`)}">
-    <span>${s.name}</span><em>${s.tagline}</em>
+    <span class="nav__thumb"><img src="${url(s.products[0].img)}" alt="" loading="lazy"></span>
+    <span class="nav__menu-txt"><span>${s.name}</span><em>${s.tagline}</em></span>
   </a>`).join('');
 
 const headerHTML = `
@@ -33,8 +34,11 @@ const headerHTML = `
     </a>
     <nav class="nav">
       <div class="nav__has-menu">
-        <a href="${HOME}#series">SERIES ▾</a>
-        <div class="nav__menu">${seriesMenu}</div>
+        <a href="${url('series/')}">SERIES ▾</a>
+        <div class="nav__menu">
+          <a href="${url('series/')}" class="nav__menu-all"><span>シリーズ一覧</span><em>5つのシリーズをまとめて見る</em></a>
+          ${seriesMenu}
+        </div>
       </div>
       <a href="${url('products.html')}">PRODUCT</a>
       <a href="${url('about.html')}">ABOUT</a>
@@ -58,6 +62,7 @@ const headerHTML = `
   <div class="drawer__panel">
     <button class="drawer__close" data-close aria-label="閉じる">✕</button>
     <div style="clear:both;height:8px"></div>
+    <a href="${url('series/')}">シリーズ一覧</a>
     ${SERIES.map((s) => `<a href="${url(`series/${s.slug}/`)}">${s.name}</a>`).join('')}
     <a href="${url('products.html')}">PRODUCT</a>
     <a href="${url('stores.html')}">取扱店・購入方法</a>
@@ -82,7 +87,8 @@ const footerHTML = `
       </div>
       <div>
         <h4>Series</h4>
-        <ul>${SERIES.map((s) => `<li><a href="${url(`series/${s.slug}/`)}">${s.name}</a></li>`).join('')}
+        <ul><li><a href="${url('series/')}">シリーズ一覧</a></li>
+        ${SERIES.map((s) => `<li><a href="${url(`series/${s.slug}/`)}">${s.name}</a></li>`).join('')}
         <li><a href="${url('products.html')}">商品一覧</a></li></ul>
       </div>
       <div>

@@ -31,8 +31,8 @@
 <section class="section" id="lineup">
   <div class="wrap">
     <div class="maxw" style="margin-bottom:56px">
-      <p class="eyebrow">Lineup</p>
-      <h2 class="h-display h-en">Find Your Model</h2>
+      <p class="eyebrow">Models</p>
+      <h2 class="h-display h-en">Lineup</h2>
       <p class="head-sub">あなたに最適な、1画面を。</p>
       <p class="lead mt-m">エントリーの Basic から全部入りの Pro まで。すべて5インチIPS・CarPlay/Android Auto対応。</p>
     </div>
@@ -56,8 +56,8 @@
 <section class="section" id="compare">
   <div class="wrap">
     <div class="maxw" style="margin-bottom:48px">
-      <p class="eyebrow">Comparison</p>
-      <h2 class="h-display h-en">Compare Models</h2>
+      <p class="eyebrow">Spec</p>
+      <h2 class="h-display h-en">Spec Comparison</h2>
       <p class="head-sub">4モデル、徹底比較。</p>
     </div>
     <div class="compare-wrap">
@@ -110,9 +110,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="../../assets/js/components.js"></script>
+<script type="module" src="../../assets/js/components.js?v=4"></script>
 <script type="module">
-  import { seriesBySlug } from '../../assets/js/products.js';
+  import { seriesBySlug } from '../../assets/js/products.js?v=4';
   const ROOT = document.body.dataset.root || '';
   const srd = seriesBySlug('srd');
   // 低価格順（Slim → Basic → SRD 5 → Pro）でユーザーが選びやすく
@@ -146,14 +146,15 @@
   const hiIdx = cols.findIndex(m => m.slug === 'srd-5-pro');
   // 列順 = 低価格順: Slim / Basic / SRD 5 / Pro
   const rows = [
-    ['画面',['5" IPS タッチ','5" IPS','5" IPS','5" IPS 雨天対応タッチ']],
-    ['輝度',['800nit','—','—','1000nit']],
+    ['画面',['5" IPS タッチ','5" IPS','5" IPS タッチ','5" IPS 雨天対応タッチ']],
+    ['解像度',['1024×600','—','854×480','1024×600']],
+    ['輝度',['800nit','—','600nit','1000nit']],
     ['CarPlay / Android Auto',['yes','yes','yes','yes']],
-    ['前後ドラレコ (FullHD)',['no','no','yes','yes']],
+    ['前後ドラレコ',['no','no','yes','yes']],
     ['タイヤ空気圧監視 TPMS',['no','no','yes','yes']],
     ['GPS内蔵',['no','no','yes','yes']],
-    ['Bluetooth',['5.1','—','—','5.0']],
-    ['Wi-Fi',['2.4GHz','—','—','5GHz']],
+    ['Bluetooth',['5.1','—','5.0','5.0']],
+    ['Wi-Fi',['2.4GHz','—','5GHz','5GHz']],
     ['防水防塵',['IP65','IP66','IP66','IP67']],
     ['筐体・特記',['薄型軽量','必要十分','全部入り','航空アルミ+信越シリコーン']],
   ];
@@ -163,7 +164,7 @@
   const tbody = `<tbody>${rows.map(([l,v])=>`<tr><th>${l}</th>${v.map((x,i)=>`<td class="${i===hiIdx?'col-hi':''}">${cell(x)}</td>`).join('')}</tr>`).join('')}</tbody>`;
   document.getElementById('compare-table').innerHTML = thead + tbody;
 </script>
-<script type="module" src="../../assets/js/api-price-display.js"></script>
-<script type="module" src="../../assets/js/motion.js"></script>
+<script type="module" src="../../assets/js/api-price-display.js?v=4"></script>
+<script type="module" src="../../assets/js/motion.js?v=4"></script>
 </body>
 </html>

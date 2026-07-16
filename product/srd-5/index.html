@@ -123,14 +123,22 @@
     <h2 class="h-section h-en center">Specifications</h2>
     <p class="head-sub center" style="margin-bottom:36px">製品仕様</p>
     <div class="spec-grid">
-      <dl class="spec-row"><dt>ディスプレイ</dt><dd>5" IPS</dd></dl>
-      <dl class="spec-row"><dt>スマホ連携</dt><dd>CarPlay / Android Auto</dd></dl>
-      <dl class="spec-row"><dt>ドラレコ</dt><dd>前後 FullHD</dd></dl>
-      <dl class="spec-row"><dt>タイヤ空気圧監視</dt><dd>TPMS 対応（センサー付属モデル）</dd></dl>
-      <dl class="spec-row"><dt>GPS</dt><dd>内蔵</dd></dl>
+      <dl class="spec-row"><dt>ディスプレイ</dt><dd>5" IPS タッチパネル</dd></dl>
+      <dl class="spec-row"><dt>解像度</dt><dd>854×480 HD</dd></dl>
+      <dl class="spec-row"><dt>輝度</dt><dd>600nit</dd></dl>
+      <dl class="spec-row"><dt>スマホ連携</dt><dd>CarPlay / Android Auto（ワイヤレス）</dd></dl>
+      <dl class="spec-row"><dt>ドラレコ</dt><dd>前後 1920×1080（AHD）/ 視野角145°</dd></dl>
+      <dl class="spec-row"><dt>Gセンサー</dt><dd>搭載（ループ録画機能付）</dd></dl>
+      <dl class="spec-row"><dt>タイヤ空気圧監視</dt><dd>TPMS（専用センサー2個付属）</dd></dl>
+      <dl class="spec-row"><dt>GPS</dt><dd>内蔵アンテナ</dd></dl>
+      <dl class="spec-row"><dt>Bluetooth</dt><dd>5.0</dd></dl>
+      <dl class="spec-row"><dt>Wi-Fi</dt><dd>IEEE 802.11a/n 5GHz（DFS）</dd></dl>
       <dl class="spec-row"><dt>防水・防塵</dt><dd>IP66</dd></dl>
-      <dl class="spec-row"><dt>給電</dt><dd>USB / 12V接続（ケーブル別売あり）</dd></dl>
-      <dl class="spec-row"><dt>拡張パーツ</dt><dd>ブラケット各種 / カメラセット / TPMSセンサー</dd></dl>
+      <dl class="spec-row"><dt>動作温度</dt><dd>-10〜60℃</dd></dl>
+      <dl class="spec-row"><dt>給電</dt><dd>USB Type-C（5V）/ ACC電源（12V・24V対応）</dd></dl>
+      <dl class="spec-row"><dt>記録媒体</dt><dd>microSD 最大128GB</dd></dl>
+      <dl class="spec-row"><dt>対応言語</dt><dd>日本語 / 英語</dd></dl>
+      <dl class="spec-row"><dt>拡張パーツ</dt><dd>ブラケット各種 / カメラ延長ケーブル 等</dd></dl>
     </div>
     <p class="center" style="font-size:12px;color:var(--muted);margin-top:24px">※仕様は予告なく変更となる場合があります。</p>
   </div>
@@ -147,9 +155,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="../../assets/js/components.js"></script>
+<script type="module" src="../../assets/js/components.js?v=4"></script>
 <script type="module">
-  import { seriesBySlug } from '../../assets/js/products.js';
+  import { seriesBySlug } from '../../assets/js/products.js?v=4';
   const ROOT = document.body.dataset.root || '';
   const others = seriesBySlug('srd').products.filter(p => p.slug !== 'srd-5');
   document.getElementById('other-models').innerHTML = others.map(m => `
@@ -165,8 +173,8 @@
       </div>
     </a>`).join('');
 </script>
-<script type="module" src="../../assets/js/pdp.js"></script>
-<script type="module" src="../../assets/js/api-price-display.js"></script>
-<script type="module" src="../../assets/js/motion.js"></script>
+<script type="module" src="../../assets/js/pdp.js?v=4"></script>
+<script type="module" src="../../assets/js/api-price-display.js?v=4"></script>
+<script type="module" src="../../assets/js/motion.js?v=4"></script>
 </body>
 </html>

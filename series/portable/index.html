@@ -173,7 +173,7 @@
 <!-- ===== CROSS-SELL ===== -->
 <section class="section">
   <div class="wrap">
-    <div class="maxw"><p class="eyebrow">Smart Series</p><h2 class="h-section h-en">You May Also Like</h2><p class="head-sub">あわせて使いたい</p></div>
+    <div class="maxw"><p class="eyebrow">Smart Series</p><h2 class="h-section h-en">Recommended</h2><p class="head-sub">あわせて使いたい</p></div>
     <div class="grid grid-3 mt-l" id="cross-sell"></div>
     <div class="center mt-l"><a href="../../#series" class="btn btn--gold-ghost btn--lg">5つのシリーズを見る</a></div>
   </div>
@@ -181,9 +181,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="../../assets/js/components.js"></script>
+<script type="module" src="../../assets/js/components.js?v=4"></script>
 <script type="module">
-  import { productById } from '../../assets/js/products.js';
+  import { productById } from '../../assets/js/products.js?v=4';
   const ROOT = document.body.dataset.root || '';
 
   // ---- variant selector: 選択SKUをカートボタン・価格・希望小売価格へ反映 ----
@@ -230,9 +230,9 @@
       </div>
     </a>`).join('');
 </script>
-<script type="module" src="../../assets/js/pdp.js"></script>
-<script type="module" src="../../assets/js/api-price-display.js"></script>
-<script type="module" src="../../assets/js/motion.js"></script>
+<script type="module" src="../../assets/js/pdp.js?v=4"></script>
+<script type="module" src="../../assets/js/api-price-display.js?v=4"></script>
+<script type="module" src="../../assets/js/motion.js?v=4"></script>
 <style>
 /* variant selector (page-local) */
 .variants { display: grid; gap: 8px; margin: 22px 0 6px; }
