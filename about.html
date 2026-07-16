@@ -10,13 +10,16 @@
 <body data-root="">
 <div id="site-header"></div>
 
-<!-- ===== HERO ===== -->
-<section class="section" style="padding-top:clamp(80px,12vw,180px)">
-  <div class="wrap">
-    <nav class="breadcrumb"><a href="./">SMART SERIES</a> / ブランドについて</nav>
-    <p class="eyebrow">Our Philosophy</p>
-    <h1 class="h-hero">「あったらいいな」を、<br><span class="outline-type">カタチにする。</span></h1>
-    <p class="lead mt-m maxw">Smart Series は、カスタムジャパンが自ら企画・開発・製造・販売まで手がける、ライダーのためのスマートプロダクト・シリーズ。その原点にあるのは、日々現場から届く「こんなのが欲しかった」という、たったひとつの声です。</p>
+<!-- ===== HERO (full-bleed cover) ===== -->
+<section class="ahero bleed">
+  <div class="ahero__bg"><img src="assets/cg/srd5-cg-rock.jpg" alt=""></div>
+  <div class="ahero__inner">
+    <div class="wrap">
+      <nav class="breadcrumb"><a href="./">SMART SERIES</a> / ブランドについて</nav>
+      <p class="eyebrow">Our Philosophy</p>
+      <h1 class="h-hero h-en">SMART,<br><span class="outline-type">FOR RIDERS.</span></h1>
+      <p class="lead mt-m maxw">Smart Series は、カスタムジャパンが自ら企画・開発・製造・販売まで手がける、ライダーのためのスマートプロダクト・シリーズ。その原点にあるのは、日々現場から届く「こんなのが欲しかった」という、たったひとつの声です。</p>
+    </div>
   </div>
 </section>
 
@@ -108,9 +111,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="assets/js/components.js?v=8"></script>
+<script type="module" src="assets/js/components.js?v=11"></script>
 <script type="module">
-  import { SERIES } from './assets/js/products.js?v=8';
+  import { SERIES } from './assets/js/products.js?v=11';
   document.getElementById('series-index').innerHTML = SERIES.map((s,i) => `
     <a class="lineup__item" href="series/${s.slug}/">
       <span class="badge badge--plain">0${i+1}</span>
@@ -121,7 +124,17 @@
         <span class="arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </div>
     </a>`).join('');
-  import('./assets/js/motion.js?v=8'); // 動的生成後にモーション起動
+  import('./assets/js/motion.js?v=11'); // 動的生成後にモーション起動
 </script>
+<style>
+/* about hero (page-local) — 高さ約8割のカバー画像ヒーロー */
+.ahero { position: relative; min-height: clamp(460px, 80vh, 760px); display: flex; align-items: flex-end; overflow: hidden; }
+.ahero__bg { position: absolute; inset: 0; }
+.ahero__bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+.ahero__bg::after { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(90deg, rgba(10,10,11,.5) 0%, rgba(10,10,11,.22) 45%, rgba(10,10,11,.04) 100%),
+  linear-gradient(0deg, rgba(10,10,11,.82) 0%, rgba(10,10,11,.35) 26%, transparent 50%); }
+.ahero__inner { position: relative; z-index: 1; width: 100%; padding-block: clamp(48px, 7vw, 88px); }
+</style>
 </body>
 </html>

@@ -119,7 +119,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-header__inner { height: 100%; display: flex; align-items: center; gap: 20px; width: 100%; padding-inline: clamp(22px, 2.5vw, 72px); }
 .brand { margin-right: auto; display: inline-flex; align-items: center; gap: 14px; }
 .brand__logo { height: 27px; width: auto; display: block; }
-.brand__series { font-family: var(--font-en); font-weight: 800; font-size: 12px; letter-spacing: .16em; color: #0e1116; padding-left: 14px; border-left: 1px solid rgba(0,0,0,.16); white-space: nowrap; }
+.brand__series { font-family: var(--font-en); font-weight: 900; -webkit-text-stroke: .45px currentColor; font-size: 12px; letter-spacing: .16em; color: #0e1116; padding-left: 14px; border-left: 1px solid rgba(0,0,0,.16); white-space: nowrap; }
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav > a, .nav .nav__has-menu > a {
   font-size: 12.5px; font-weight: 600; letter-spacing: .05em; color: #444a54;
@@ -164,7 +164,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-grid h4 { color: #fff; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 18px; }
 .footer-grid li { margin-bottom: 11px; font-size: 14px; }
 .footer-logo { height: 26px; width: auto; display: block; }
-.footer-series { display: block; margin-top: 12px; font-family: var(--font-en); font-weight: 800; font-size: 13px; letter-spacing: .2em; color: var(--gold); }
+.footer-series { display: block; margin-top: 12px; font-family: var(--font-en); font-weight: 900; -webkit-text-stroke: .45px currentColor; font-size: 13px; letter-spacing: .2em; color: var(--gold); }
 .footer-brand p { margin-top: 14px; font-size: 13px; max-width: 36ch; color: var(--muted); }
 .footer-social { margin-top: 48px; display: flex; align-items: center; gap: 14px; }
 .footer-social__label { font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -397,6 +397,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .stile:hover .stile__media img { transform: scale(1.06); }
 .stile__grad { position: absolute; inset: 0; background:
   linear-gradient(0deg, rgba(10,10,11,.88) 0%, rgba(10,10,11,.52) 30%, rgba(10,10,11,.18) 60%, rgba(10,10,11,.08) 100%); }
+/* TOPの01〜03タイル（ダークなCG背景）はマスクをさらに薄く */
+.series-grid2 .stile:nth-child(-n+3) .stile__grad { background:
+  linear-gradient(0deg, rgba(10,10,11,.74) 0%, rgba(10,10,11,.34) 28%, rgba(10,10,11,.08) 58%, rgba(10,10,11,.02) 100%); }
 .stile::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; z-index: 3; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
 .stile:hover::before { transform: scaleX(1); }
 .stile__body { position: absolute; z-index: 2; left: clamp(24px, 2.6vw, 52px); right: clamp(24px, 2.6vw, 52px); bottom: clamp(24px, 2.6vw, 44px); }

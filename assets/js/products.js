@@ -37,7 +37,7 @@ export const SERIES = [
     name: 'スマートエアーマルチポンプ',
     short: 'MULTI PUMP',
     tagline: 'バイク特化の電動エアーポンプ',
-    lead: '入力してねじ込むだけ。目標空気圧まで自動充填、コンパクト＆パワフル。',
+    lead: 'バイク特化×多用途の、持ち歩ける自動空気入れ。入力してねじ込むだけ、目標空気圧まで自動充填。',
     products: [
       { id: '28089018', slug: 'multipump', name: 'スマートエアーマルチポンプ SAP2000', price: 3586, msrp: 5980, img: 'assets/products/28089018/main.jpg', tags: ['bike', 'bicycle', 'car', 'daily'], note: '目標空気圧まで自動充填。自転車・車・ボールにも', href: 'series/multipump/' },
     ],
