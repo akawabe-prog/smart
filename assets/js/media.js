@@ -10,6 +10,24 @@ export const PRESS = [
   { name: 'YouTube',     kind: 'インフルエンサー' },
 ];
 
+// イベント・展示会出展（ビジュアル・サムネイル型で表示）
+export const EVENTS = [
+  {
+    title: '東京モーターサイクルショー 2026',
+    sub: '20周年記念・過去最大ブースでスマートシリーズを体験展示',
+    date: '2026.03',
+    thumb: 'assets/media/tmcs2026-booth.jpg',
+    url: 'https://prtimes.jp/main/html/rd/p/000000077.000070755.html',
+  },
+  {
+    title: '大阪モーターサイクルショー 2026',
+    sub: 'ASMAX・スマートシリーズを一挙展示',
+    date: '2026.03',
+    thumb: 'assets/prtimes/carlink/84_17.jpg',
+    url: 'https://release.traicy.com/posts/202603061065756/',
+  },
+];
+
 // 第三者の声（メディア記事・YouTube）。href はルート相対 or 外部URL
 export const VOICES = [
   {
@@ -29,6 +47,7 @@ export const VOICES = [
     product: 'airduster',
     quote: 'バイクの洗車から日常生活まで、あらゆるシーンで活躍する。',
     url: 'https://www.motomegane.com/news-release/pickup-motorcycle/customjapan-11_20260616',
+    thumb: 'assets/motomegane/airduster/IMG_0288.jpg',
     date: '2026.06',
   },
   {
@@ -37,6 +56,7 @@ export const VOICES = [
     product: 'multipump',
     quote: '手軽に使える“神アイテム”。バイク用に特化した、コンパクト＆パワフルな電動エアポンプ。',
     url: 'https://www.motomegane.com/news-release/item-report/customjapan-6_20250430',
+    thumb: 'assets/motomegane/multipump/DSC2677.jpg',
     date: '2025.04',
   },
 ];

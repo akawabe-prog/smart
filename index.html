@@ -63,15 +63,23 @@
     </div>
     <!-- press strip -->
     <div class="press-strip" id="press-strip"></div>
-    <!-- exhibition credential -->
-    <a class="exhibit-note" href="news.html">
-      <span class="exhibit-note__ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a2 2 0 0 1 2-2h9l-1.5 4L15 11H6M6 21H2M18 21v-6h4v6"/></svg></span>
-      <b>東京・大阪モーターサイクルショー 2026 出展</b>
-      <span>カスタムジャパン20周年・過去最大ブースで、スマートシリーズを体験展示</span>
-      <svg class="exhibit-note__arw" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
     <!-- voices -->
     <div class="voices-grid mt-l" id="voices-grid"></div>
+  </div>
+</section>
+
+<!-- ===== EVENTS (ビジュアル・サムネイル型) ===== -->
+<section class="section--tight" id="events">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">Events</p>
+        <h2 class="h-display h-en">Exhibitions</h2>
+        <p class="head-sub">全国の展示会で、実機に触れる。</p>
+      </div>
+      <a href="news.html" class="link-gold">出展情報をもっと見る <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="event-grid" id="event-grid"></div>
   </div>
 </section>
 
@@ -165,9 +173,9 @@
     io.observe(wall);
   })();
 </script>
-<script type="module" src="assets/js/components.js?v=4"></script>
+<script type="module" src="assets/js/components.js?v=6"></script>
 <script type="module">
-  import { SERIES } from './assets/js/products.js?v=4';
+  import { SERIES } from './assets/js/products.js?v=6';
 
   // ---- series index: 2カラム フルブリード（英語主体・洗練） ----
   const EN = {
@@ -210,7 +218,7 @@
   document.getElementById('marquee-track').innerHTML = seq + seq; // 2周ぶんでループ
 
   // ---- best sellers (D2C) ----
-  import('./assets/js/products.js?v=4').then(({ POPULAR, productById }) => {
+  import('./assets/js/products.js?v=6').then(({ POPULAR, productById }) => {
     const offLine = (p) => {
       const off = p.msrp ? Math.round((1 - p.price / p.msrp) * 100) : 0;
       return off >= 5 ? `<div class="price-line price-line--s"><s class="msrp">¥${p.msrp.toLocaleString()}</s><span class="off-badge" data-off-id="${p.id}" data-msrp="${p.msrp}">${off}% OFF</span></div>` : '';
@@ -232,11 +240,26 @@
       </a>`;
     }).join('');
     // 価格ライブ表示(動的生成後に読み込み)
-    import('./assets/js/api-price-display.js?v=4');
+    import('./assets/js/api-price-display.js?v=6');
   });
 
   // ---- media & voices (信頼担保) ----
-  import('./assets/js/media.js?v=4').then(({ PRESS, VOICES }) => {
+  import('./assets/js/media.js?v=6').then(({ PRESS, VOICES, EVENTS }) => {
+    // ---- events（ビジュアル・サムネイル型） ----
+    const eGrid = document.getElementById('event-grid');
+    if (eGrid && EVENTS) eGrid.innerHTML = EVENTS.map(e => `
+      <a class="ecard" href="${e.url}" target="_blank" rel="noopener">
+        <div class="ecard__media"><img src="${e.thumb}" alt="${e.title}" loading="lazy"></div>
+        <div class="ecard__grad"></div>
+        <span class="ecard__date">${e.date}</span>
+        <div class="ecard__body">
+          <span class="ecard__tag">Exhibition</span>
+          <h3 class="ecard__title">${e.title}</h3>
+          <p class="ecard__sub">${e.sub}</p>
+          <span class="ecard__cta">詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+      </a>`).join('');
+
     document.getElementById('press-strip').innerHTML = PRESS.map(p =>
       `<div class="press-item"><span class="press-name">${p.name}</span><span class="press-kind">${p.kind}</span></div>`
     ).join('');
@@ -255,7 +278,8 @@
         </a>`;
       }
       return `
-      <a class="voice" href="${v.url}" target="_blank" rel="noopener">
+      <a class="voice${v.thumb ? ' voice--media' : ''}" href="${v.url}" target="_blank" rel="noopener">
+        ${v.thumb ? `<div class="voice__thumb"><img src="${v.thumb}" alt="" loading="lazy"><span class="voice__ext"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>` : ''}
         <div class="voice__body">
           <span class="voice__tag">MEDIA</span>
           <p class="voice__quote">“${v.quote}”</p>
@@ -280,7 +304,7 @@
   });
 
   // ---- latest news (トップ最新3件) ----
-  import('./assets/js/news.js?v=4').then(({ NEWS }) => {
+  import('./assets/js/news.js?v=6').then(({ NEWS }) => {
     const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
     document.getElementById('home-news').innerHTML = NEWS.slice(0, 3).map((n, i) => `
       <li><a href="${n.url}" target="_blank" rel="noopener">
@@ -291,7 +315,7 @@
         <span class="n-ext">↗</span>
       </a></li>`).join('');
     // 全セクション生成後にモーションを起動
-    import('./assets/js/motion.js?v=4');
+    import('./assets/js/motion.js?v=6');
   });
 </script>
 <style>
