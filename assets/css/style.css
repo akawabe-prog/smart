@@ -331,10 +331,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-block: 1px solid var(--gold-line);
 }
 .brandband .wrap { position: relative; z-index: 1; }
-.brandband__brand { display: flex; align-items: center; gap: 18px; margin-bottom: 36px; flex-wrap: wrap; }
+.brandband__grid { display: grid; grid-template-columns: 1fr auto; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.brandband__aside { justify-self: end; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .brandband__by { font-family: var(--font-en); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-.brandband__logo { height: 36px; width: auto; }
-@media (max-width: 640px) { .brandband__brand { gap: 12px; margin-bottom: 26px; } .brandband__logo { height: 28px; } }
+.brandband__mascot { width: clamp(150px, 17vw, 230px); background: #fff; border-radius: 20px; padding: clamp(14px, 1.4vw, 22px); box-shadow: 0 18px 44px rgba(0,0,0,.4); display: block; }
+@media (max-width: 860px) {
+  .brandband__grid { grid-template-columns: 1fr; }
+  .brandband__aside { justify-self: start; flex-direction: row; margin-top: 8px; }
+  .brandband__mascot { width: 128px; }
+}
 
 /* =======================  NEWS LIST  ======================= */
 .news-list li { border-bottom: 1px solid var(--line-2); }

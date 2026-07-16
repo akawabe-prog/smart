@@ -4,7 +4,7 @@
    data-root 属性でルート相対パス(サブディレクトリ対応)を渡す。
    例: <body data-root="../../"> → series/srd/ からの相対
    ========================================================================= */
-import { SERIES } from './products.js?v=7';
+import { SERIES } from './products.js?v=8';
 
 const ROOT = document.body.getAttribute('data-root') || '';
 const url = (p) => `${ROOT}${p}`;
@@ -44,7 +44,7 @@ const headerHTML = `
       <a href="${url('about.html')}">ABOUT</a>
       <a href="${url('support.html')}">SUPPORT</a>
       <a href="${url('news.html')}">NEWS</a>
-      <a href="${url('contact.html')}">CONTACT</a>
+      <a href="https://www.customjapan.net/h/inquiry" target="_blank" rel="noopener">CONTACT</a>
     </nav>
     <div class="header-actions">
       <a class="cart-link" href="${url('cart.html')}" aria-label="カート">
@@ -70,7 +70,7 @@ const headerHTML = `
     <a href="${url('support.html')}">SUPPORT</a>
     <a href="${url('faq.html')}">FAQ</a>
     <a href="${url('news.html')}">NEWS</a>
-    <a href="${url('contact.html')}">CONTACT</a>
+    <a href="https://www.customjapan.net/h/inquiry" target="_blank" rel="noopener">CONTACT</a>
     <a href="${url('cart.html')}">CART</a>
     <a href="https://www.customjapan.net/" target="_blank" rel="noopener">CUSTOM JAPAN ↗</a>
   </div>
@@ -97,7 +97,7 @@ const footerHTML = `
           <li><a href="${url('support.html')}">サポート</a></li>
           <li><a href="${url('guide.html')}">ご利用ガイド（配送・返品）</a></li>
           <li><a href="${url('faq.html')}">よくある質問</a></li>
-          <li><a href="${url('contact.html')}">お問い合わせ</a></li>
+          <li><a href="https://www.customjapan.net/h/inquiry" target="_blank" rel="noopener">お問い合わせ</a></li>
         </ul>
       </div>
       <div>
