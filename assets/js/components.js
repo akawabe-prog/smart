@@ -4,7 +4,7 @@
    data-root 属性でルート相対パス(サブディレクトリ対応)を渡す。
    例: <body data-root="../../"> → series/srd/ からの相対
    ========================================================================= */
-import { SERIES } from './products.js?v=16';
+import { SERIES } from './products.js?v=17';
 
 const ROOT = document.body.getAttribute('data-root') || '';
 const url = (p) => `${ROOT}${p}`;

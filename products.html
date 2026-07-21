@@ -74,9 +74,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="assets/js/components.js?v=16"></script>
+<script type="module" src="assets/js/components.js?v=17"></script>
 <script type="module">
-  import { SERIES, allProducts } from './assets/js/products.js?v=16';
+  import { SERIES, allProducts } from './assets/js/products.js?v=17';
 
   const TAG_LABEL = { bike: 'バイク', bicycle: '自転車', car: '車', daily: 'デイリー' };
   const seriesShort = Object.fromEntries(SERIES.map(s => [s.slug, s.short]));
@@ -125,8 +125,8 @@
   const initial = location.hash.replace('#', '');
   apply(['bike', 'bicycle', 'car', 'daily'].includes(initial) ? initial : 'all');
 
-  import('./assets/js/api-price-display.js?v=16');
-  import('./assets/js/motion.js?v=16');
+  import('./assets/js/api-price-display.js?v=17');
+  import('./assets/js/motion.js?v=17');
 </script>
 <style>
 /* filter chips */
