@@ -106,7 +106,7 @@ const extractItems = (payload) => {
   return candidates.find(Array.isArray) || [];
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
+const refreshApiPrices = async () => {
   const priceEls = Array.from(document.querySelectorAll('[data-api-price-item-id]'));
   if (priceEls.length === 0) return;
 
@@ -149,4 +149,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (error) {
     console.warn('[api-price-display] price API fetch failed. fallback price is used.', error);
   }
-});
+};
+
+// 静的読み込み(DOM構築前)でも動的import(DOMContentLoaded後)でも動くように起動
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', refreshApiPrices);
+} else {
+  refreshApiPrices();
+}
