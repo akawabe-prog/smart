@@ -40,9 +40,9 @@
 </section>
 
 <div id="site-footer"></div>
-<script type="module" src="assets/js/components.js?v=14"></script>
+<script type="module" src="assets/js/components.js?v=15"></script>
 <script type="module">
-  import { NEWS } from './assets/js/news.js?v=14';
+  import { NEWS } from './assets/js/news.js?v=15';
   const list = document.getElementById('news-list');
   const render = (cat) => {
     const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
@@ -62,7 +62,7 @@
       document.querySelectorAll('#news-filter .chip').forEach(x => x.classList.toggle('is-active', x === c));
       render(c.dataset.cat);
     }));
-  import('./assets/js/motion.js?v=14');
+  import('./assets/js/motion.js?v=15');
 </script>
 <style>
 .news-filter { display: flex; gap: 10px; flex-wrap: wrap; }

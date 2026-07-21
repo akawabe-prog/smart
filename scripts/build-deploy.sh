@@ -29,7 +29,7 @@ root, dest, domain = sys.argv[1], sys.argv[2], sys.argv[3]
 pages = {}
 for f in glob.glob(os.path.join(root, "*.html")):
     b = os.path.basename(f)
-    if b == "contact.html":  # 旧フォーム: どこからもリンクされていないため除外
+    if b in ("contact.html", "cart.html"):  # 旧フォーム/自前カート: 本番はCJカートへ遷移のため除外
         continue
     clean = "/" if b == "index.html" else "/" + b[:-5]
     pages[f] = (os.path.join(dest, b), "", clean)
@@ -154,7 +154,7 @@ python3 - "$DEST" "$DOMAIN" << 'PY'
 import sys, datetime
 dest, domain = sys.argv[1], sys.argv[2]
 urls = ["/", "/about", "/products", "/stores", "/guide", "/support", "/faq",
-        "/news", "/policy", "/cart", "/series"]
+        "/news", "/policy", "/series"]
 urls += [f"/series/{s}" for s in ["srd","carlink","multipump","portable","airduster"]]
 urls += [f"/product/{s}" for s in ["srd-5","srd-5-basic","srd-5-pro","srd-5-slim"]]
 today = datetime.date.today().isoformat()

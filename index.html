@@ -196,9 +196,9 @@
     io.observe(wall);
   })();
 </script>
-<script type="module" src="assets/js/components.js?v=14"></script>
+<script type="module" src="assets/js/components.js?v=15"></script>
 <script type="module">
-  import { SERIES } from './assets/js/products.js?v=14';
+  import { SERIES } from './assets/js/products.js?v=15';
 
   // ---- series index: 2カラム フルブリード（英語主体・洗練） ----
   const EN = {
@@ -245,7 +245,7 @@
   document.getElementById('marquee-track').innerHTML = seq + seq; // 2周ぶんでループ
 
   // ---- best sellers (D2C) ----
-  import('./assets/js/products.js?v=14').then(({ POPULAR, productById }) => {
+  import('./assets/js/products.js?v=15').then(({ POPULAR, productById }) => {
     const offLine = (p) => {
       const off = p.msrp ? Math.round((1 - p.price / p.msrp) * 100) : 0;
       return off >= 5 ? `<div class="price-line price-line--s"><s class="msrp">¥${p.msrp.toLocaleString()}</s><span class="off-badge" data-off-id="${p.id}" data-msrp="${p.msrp}">${off}% OFF</span></div>` : '';
@@ -267,11 +267,11 @@
       </a>`;
     }).join('');
     // 価格ライブ表示(動的生成後に読み込み)
-    import('./assets/js/api-price-display.js?v=14');
+    import('./assets/js/api-price-display.js?v=15');
   });
 
   // ---- media & voices (信頼担保) ----
-  import('./assets/js/media.js?v=14').then(({ PRESS, VOICES, EVENTS }) => {
+  import('./assets/js/media.js?v=15').then(({ PRESS, VOICES, EVENTS }) => {
     // ---- events（ビジュアル・サムネイル型） ----
     const eGrid = document.getElementById('event-grid');
     if (eGrid && EVENTS) eGrid.innerHTML = EVENTS.map(e => `
@@ -331,7 +331,7 @@
   });
 
   // ---- latest news (トップ最新3件) ----
-  import('./assets/js/news.js?v=14').then(({ NEWS }) => {
+  import('./assets/js/news.js?v=15').then(({ NEWS }) => {
     const tagCls = { 'メディア掲載': ' n-tag--media', 'イベント出展': ' n-tag--event' };
     document.getElementById('home-news').innerHTML = NEWS.slice(0, 3).map((n, i) => `
       <li><a href="${n.url}" target="_blank" rel="noopener">
@@ -342,7 +342,7 @@
         <span class="n-ext">↗</span>
       </a></li>`).join('');
     // 全セクション生成後にモーションを起動
-    import('./assets/js/motion.js?v=14');
+    import('./assets/js/motion.js?v=15');
   });
 
   // ---- HERO: 3D CG映像を4秒ごとにクロスフェード切替 ----

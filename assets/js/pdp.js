@@ -9,7 +9,8 @@
    ========================================================================= */
 import { initApiClient, init, addItemsToCart, fetchCart } from './api-client.js';
 
-const SITE = 'smart';
+const SITE = 'smartseries';
+const CART_URL = 'https://www.customjapan.net/cart?site=smartseries';
 
 /* ---- cart count badge ---- */
 async function refreshCartCount() {
@@ -40,9 +41,9 @@ function wireAddToCart() {
       try {
         await addItemsToCart([{ id, quantity, site: SITE }]);
         btn.dataset.state = 'done';
-        btn.innerHTML = '✓ カートに追加しました';
-        await refreshCartCount();
-        setTimeout(() => { btn.innerHTML = original; btn.disabled = false; btn.dataset.state = ''; }, 2200);
+        btn.innerHTML = '✓ カートへ移動します…';
+        // 購入手続きは customjapan.net のカートで行う（eXsと同方式）
+        setTimeout(() => { location.href = CART_URL; }, 600);
       } catch (e) {
         console.error('[pdp] add to cart failed', e);
         btn.dataset.state = 'error';

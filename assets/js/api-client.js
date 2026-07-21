@@ -28,7 +28,7 @@ export const addItemsToCart = async items => {
     .map(item => ({
       id      : item?.id,
       quantity: Number(item?.quantity || 1),
-      site    : item?.site || 'smart',
+      site    : item?.site || 'smartseries',
     }))
     .filter(item => item.id)
 

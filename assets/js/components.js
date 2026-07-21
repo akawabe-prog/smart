@@ -4,7 +4,7 @@
    data-root 属性でルート相対パス(サブディレクトリ対応)を渡す。
    例: <body data-root="../../"> → series/srd/ からの相対
    ========================================================================= */
-import { SERIES } from './products.js?v=14';
+import { SERIES } from './products.js?v=15';
 
 const ROOT = document.body.getAttribute('data-root') || '';
 const url = (p) => `${ROOT}${p}`;
@@ -47,7 +47,7 @@ const headerHTML = `
       <a href="https://www.customjapan.net/h/inquiry" target="_blank" rel="noopener">CONTACT</a>
     </nav>
     <div class="header-actions">
-      <a class="cart-link" href="${url('cart.html')}" aria-label="カート">
+      <a class="cart-link" href="https://www.customjapan.net/cart?site=smartseries" aria-label="カート">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="count" id="cart-count">0</span>
       </a>
@@ -71,7 +71,7 @@ const headerHTML = `
     <a href="${url('faq.html')}">FAQ</a>
     <a href="${url('news.html')}">NEWS</a>
     <a href="https://www.customjapan.net/h/inquiry" target="_blank" rel="noopener">CONTACT</a>
-    <a href="${url('cart.html')}">CART</a>
+    <a href="https://www.customjapan.net/cart?site=smartseries">CART</a>
     <a href="https://www.customjapan.net/" target="_blank" rel="noopener">CUSTOM JAPAN ↗</a>
   </div>
 </div>`;
