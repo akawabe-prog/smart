@@ -110,9 +110,9 @@
 
 <div id="site-footer"></div>
 
-<script type="module" src="assets/js/components.js?v=15"></script>
+<script type="module" src="assets/js/components.js?v=16"></script>
 <script type="module">
-  import { SERIES } from './assets/js/products.js?v=15';
+  import { SERIES } from './assets/js/products.js?v=16';
   document.getElementById('series-index').innerHTML = SERIES.map((s,i) => `
     <a class="lineup__item" href="series/${s.slug}/">
       <span class="badge badge--plain">0${i+1}</span>
@@ -124,7 +124,7 @@
         <span class="arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </div>
     </a>`).join('');
-  import('./assets/js/motion.js?v=15'); // 動的生成後にモーション起動
+  import('./assets/js/motion.js?v=16'); // 動的生成後にモーション起動
 </script>
 <style>
 /* about hero (page-local) — 高さ約8割のカバー画像ヒーロー */

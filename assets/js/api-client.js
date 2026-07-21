@@ -12,10 +12,22 @@ export const initApiClient = (apiBaseUrl = API_BASE_URL, initApiBaseUrl = INIT_A
 
 // init API（api-i）で認証初期化。guid / authorization / cid を Cookie にセットし
 // loginInfo を返す。旧認証フローの置き換え。
+// 複数モジュール（価格表示・カート数など）から並行して呼ばれても、
+// ensureInitialized と同じ Promise を共有し実リクエストは1回だけにする。
 export const init = async () => {
-  const res = await ApiRequester.init()
-  ApiRequester.hasInitialized = true
-  return res
+  if (ApiRequester.hasInitialized) return
+  if (!ApiRequester.initializationPromise) {
+    ApiRequester.initializationPromise = ApiRequester.init()
+      .then((res) => {
+        ApiRequester.hasInitialized = true
+        return res
+      })
+      .catch((err) => {
+        ApiRequester.initializationPromise = null
+        throw err
+      })
+  }
+  return ApiRequester.initializationPromise
 }
 
 export const fetchCart = async () => {
