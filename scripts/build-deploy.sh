@@ -94,6 +94,9 @@ for src, (out, base_dir, clean) in sorted(pages.items()):
     s = s.replace('`series/${s.slug}/`', '`series/${s.slug}`')               # url() 内
     s = s.replace('href="series/${s.slug}/"', 'href="/series/${s.slug}"')    # TOP/aboutタイル
     s = s.replace('href="product/${', 'href="/product/${')
+    # 4) <video src> → <source type="video/mp4">（運用マニュアル 2.4）
+    s = re.sub(r'<video([^>]*?)\s+src="([^"]+\.mp4)"([^>]*)>',
+               r'<video\1\3><source src="\2" type="video/mp4">', s)
     open(out, "w", encoding="utf-8").write(s)
 print(f"pages: {len(pages)}")
 
