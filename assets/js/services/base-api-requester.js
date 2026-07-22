@@ -46,7 +46,7 @@ export class ApiRequester {
     const res = await fetch(`${ApiRequester.initApiBaseUrl}/init`, {
       method     : 'GET',
       credentials: 'include', // guid / authorization / cid の Set-Cookie を受け取る
-      cache      : 'no-store', // ETag再検証(304)を避け、毎回フレッシュな Set-Cookie を受ける
+      cache      : 'no-cache', // 認証仕様: 必須。Safariが別ログイン状態のレスポンスを使い回すのを防ぐ
       signal     : AbortSignal.timeout(INIT_TIMER),
     })
 

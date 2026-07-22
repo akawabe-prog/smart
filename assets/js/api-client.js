@@ -15,11 +15,12 @@ export const initApiClient = (apiBaseUrl = API_BASE_URL, initApiBaseUrl = INIT_A
 // 複数モジュール（価格表示・カート数など）から並行して呼ばれても、
 // ensureInitialized と同じ Promise を共有し実リクエストは1回だけにする。
 export const init = async () => {
-  if (ApiRequester.hasInitialized) return
+  if (ApiRequester.hasInitialized && ApiRequester.initResult) return ApiRequester.initResult
   if (!ApiRequester.initializationPromise) {
     ApiRequester.initializationPromise = ApiRequester.init()
       .then((res) => {
         ApiRequester.hasInitialized = true
+        ApiRequester.initResult = res // ログイン状態+カートサマリーを保持（認証仕様の戻り値）
         return res
       })
       .catch((err) => {

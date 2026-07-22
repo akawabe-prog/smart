@@ -7,18 +7,20 @@
                    <button data-thumb data-src="..."> 群 (任意)
    価格表示は api-price-display.js が [data-api-price-item-id] を処理。
    ========================================================================= */
-import { initApiClient, init, addItemsToCart, fetchCart } from './api-client.js';
+import { initApiClient, init, addItemsToCart } from './api-client.js';
 
 const SITE = 'smartseries';
 const CART_URL = 'https://www.customjapan.net/cart?site=smartseries';
 
-/* ---- cart count badge ---- */
+/* ---- cart count badge ----
+   認証仕様: init の戻り値にカートサマリー(data.quantity)が含まれるため、
+   追加の cart API を呼ばず init の結果だけでバッジを更新する。 */
 async function refreshCartCount() {
   const el = document.getElementById('cart-count');
   if (!el) return;
   try {
-    const cart = await fetchCart();
-    const n = (cart?.details || cart?.items || []).reduce((a, d) => a + Number(d.quantity || d.qty || 1), 0);
+    const res = await init();
+    const n = Number(res?.data?.quantity ?? 0);
     if (n > 0) { el.textContent = n; el.classList.add('show'); }
     else el.classList.remove('show');
   } catch { /* 未認証/CORS時は無視 */ }
