@@ -395,10 +395,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .stile__media { position: absolute; inset: 0; }
 .stile__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
 .stile:hover .stile__media img { transform: scale(1.06); }
+/* 全タイルがダークCG背景のため、軽いマスクで統一 */
 .stile__grad { position: absolute; inset: 0; background:
-  linear-gradient(0deg, rgba(10,10,11,.88) 0%, rgba(10,10,11,.52) 30%, rgba(10,10,11,.18) 60%, rgba(10,10,11,.08) 100%); }
-/* TOPの01〜03タイル（ダークなCG背景）はマスクをさらに薄く */
-.series-grid2 .stile:nth-child(-n+3) .stile__grad { background:
   linear-gradient(0deg, rgba(10,10,11,.74) 0%, rgba(10,10,11,.34) 28%, rgba(10,10,11,.08) 58%, rgba(10,10,11,.02) 100%); }
 .stile::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; z-index: 3; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease); }
 .stile:hover::before { transform: scaleX(1); }
